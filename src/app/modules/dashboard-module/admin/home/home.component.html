@@ -1,0 +1,45 @@
+<div id="content" class="p-4 p-md-5 pt-5">
+    <h2 class="mb-4">Welcome Admin</h2>
+    <hr>
+    <div class="d-none d-md-block d-lg-block d-xl-block">
+        <div class="row" style="width: 60rem;">
+            <div class="col-7">
+                <div class="row">
+                    <div class="col-12">
+                        <div>
+                            <canvas id="canvas">{{ lineChart }}</canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div>
+                            <canvas id="barChartCanvas">{{ barChart }}</canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-5">
+                <h5 class="text-center">Recent Documents</h5>
+            </div>
+        </div>
+    </div>
+
+    <div class="row d-md-none d-lg-none d-xl-none">
+        <div class="col-12">
+            <div>
+                <canvas id="canvasMob" >{{ lineChart }}</canvas>
+            </div>
+        </div>
+
+        <div class="col-12 mt-2">
+            <div>
+                <canvas id="canvasMob2">{{ barChart }}</canvas>
+            </div>
+        </div>
+
+        <div class="col-12 mt-3">
+            <h5 class="text-center">Recent Documents</h5>
+        </div>
+    </div>
+</div>
