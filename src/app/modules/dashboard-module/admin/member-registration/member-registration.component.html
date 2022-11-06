@@ -1,0 +1,925 @@
+<div id="content" class="p-4 p-md-5 pt-5">
+    <h2 class="mb-4">Member Registration</h2>
+
+    <div class="row d-none d-md-block d-lg-block d-xl-block">
+        <div class="col-12" style="width: 60rem;">
+            <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+                <li [ngbNavItem]="1">
+                    <a ngbNavLink>Main Branches</a>
+                    <ng-template ngbNavContent>
+                        <h5>Register Your Main Branches & Manage</h5>
+                        <form action="" class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="branchName">Branch Name :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Branch Name">
+                                </div>
+                                <div class="col-6">
+                                    <label for="branchName">Branch Address :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Branch Address">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <label for="branchName">Contact Number :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Branch Mobile Number">
+                                </div>
+                                <div class="col-6">
+                                    <label for="branchName">Branch Email (Optional) :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Branch Email Address">
+                                </div>
+                            </div>
+
+                            <div class="row mt-3">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <button class="btn btn-primary btn-sm">Add New Branch</button>
+                                        </div>
+                                        <div class="col-9">
+                                            <button class="btn btn-warning btn-sm">Reset Feilds</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                        <div class="row">
+                            <hr>
+                            <div class="col-12">
+                                <h5>Manage Branches</h5>
+                                <form>
+                                    <div class="mb-3 row">
+                                        <label for="table-filtering-search" class="col-xs-3 col-sm-auto col-form-label">Search Branch By Anything:</label>
+                                        <div class="col-xs-3 col-sm-auto">
+                                            <input id="table-filtering-search" class="form-control" type="text" [formControl]="filter" />
+                                        </div>
+                                    </div>
+                                </form>
+                                
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Country</th>
+                                            <th scope="col">Area</th>
+                                            <th scope="col">Population</th>
+                                            <th scope="col">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let country of countries$ | async; index as i">
+                                            <th scope="row">{{ i + 1 }}</th>
+                                            <td>
+                                                <img
+                                                    [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag"
+                                                    class="me-2"
+                                                    style="width: 20px"
+                                                />
+                                                <ngb-highlight [result]="country.name" [term]="filter.value"></ngb-highlight>
+                                            </td>
+                                            <td><ngb-highlight [result]="country.area | number" [term]="filter.value"></ngb-highlight></td>
+                                            <td><ngb-highlight [result]="country.population | number" [term]="filter.value"></ngb-highlight></td>
+                                            <td>
+                                                <a href="" class="btn btn-success btn-sm">Update</a>
+                                                <a href="" class="ms-3 btn btn-danger btn-sm">delete</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </ng-template>
+                </li>
+                <li [ngbNavItem]="2">
+                    <a ngbNavLink>Agent</a>
+                    <ng-template ngbNavContent>
+                        <h5>Register New Agent & Manage</h5>
+                        <form action="" class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="">Agent Name :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Agent Name">
+                                </div>
+                                <div class="col-6">
+                                    <label for="">NIC Number :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Agent NIC Number">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <label for="">Agent Contact No.</label>
+                                    <input type="text" class="form-control" placeholder="Enter Contact Number">
+                                </div>
+                                <div class="col-6">
+                                    <label for="">Email Address (Optional):</label>
+                                    <input type="text" class="form-control" placeholder="Enter Email Address">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <button class="btn btn-primary btn-sm">Add New Branch</button>
+                                        </div>
+                                        <div class="col-9">
+                                            <button class="btn btn-warning btn-sm">Reset Feilds</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="row">
+                            <hr>
+                            <div class="col-12">
+                                <h5>Manage Agent Details</h5>
+                                <form>
+                                    <div class="mb-3 row">
+                                        <label for="table-filtering-search" class="col-xs-3 col-sm-auto col-form-label">Search Branch By Anything:</label>
+                                        <div class="col-xs-3 col-sm-auto">
+                                            <input id="table-filtering-search" class="form-control" type="text" [formControl]="filter" />
+                                        </div>
+                                    </div>
+                                </form>
+                                
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Country</th>
+                                            <th scope="col">Area</th>
+                                            <th scope="col">Population</th>
+                                            <th scope="col">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let country of countries$ | async; index as i">
+                                            <th scope="row">{{ i + 1 }}</th>
+                                            <td>
+                                                <img
+                                                    [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag"
+                                                    class="me-2"
+                                                    style="width: 20px"
+                                                />
+                                                <ngb-highlight [result]="country.name" [term]="filter.value"></ngb-highlight>
+                                            </td>
+                                            <td><ngb-highlight [result]="country.area | number" [term]="filter.value"></ngb-highlight></td>
+                                            <td><ngb-highlight [result]="country.population | number" [term]="filter.value"></ngb-highlight></td>
+                                            <td>
+                                                <a href="" class="btn btn-success btn-sm">Update</a>
+                                                <a href="" class="ms-3 btn btn-danger btn-sm">delete</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </ng-template>
+                </li>
+                <li [ngbNavItem]="3">
+                    <a ngbNavLink>Labeling</a>
+                    <ng-template ngbNavContent>
+                        <h5>Register New Labling Employer & Manage</h5>
+                        <form action="" class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="">Employer Name :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Agent Name">
+                                </div>
+                                <div class="col-6">
+                                    <label for="">NIC Number :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Agent NIC Number">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <label for="">Employer Contact No.</label>
+                                    <input type="text" class="form-control" placeholder="Enter Contact Number">
+                                </div>
+                                <div class="col-6">
+                                    <label for="">Email Address (Optional):</label>
+                                    <input type="text" class="form-control" placeholder="Enter Email Address">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <button class="btn btn-primary btn-sm">Add New Employer</button>
+                                        </div>
+                                        <div class="col-9">
+                                            <button class="btn btn-warning btn-sm">Reset Feilds</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="row">
+                            <hr>
+                            <div class="col-12">
+                                <h5>Manage Labling Employers Details</h5>
+                                <form>
+                                    <div class="mb-3 row">
+                                        <label for="table-filtering-search" class="col-xs-3 col-sm-auto col-form-label">Search Branch By Anything:</label>
+                                        <div class="col-xs-3 col-sm-auto">
+                                            <input id="table-filtering-search" class="form-control" type="text" [formControl]="filter" />
+                                        </div>
+                                    </div>
+                                </form>
+                                
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Country</th>
+                                            <th scope="col">Area</th>
+                                            <th scope="col">Population</th>
+                                            <th scope="col">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let country of countries$ | async; index as i">
+                                            <th scope="row">{{ i + 1 }}</th>
+                                            <td>
+                                                <img
+                                                    [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag"
+                                                    class="me-2"
+                                                    style="width: 20px"
+                                                />
+                                                <ngb-highlight [result]="country.name" [term]="filter.value"></ngb-highlight>
+                                            </td>
+                                            <td><ngb-highlight [result]="country.area | number" [term]="filter.value"></ngb-highlight></td>
+                                            <td><ngb-highlight [result]="country.population | number" [term]="filter.value"></ngb-highlight></td>
+                                            <td>
+                                                <a href="" class="btn btn-success btn-sm">Update</a>
+                                                <a href="" class="ms-3 btn btn-danger btn-sm">delete</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </ng-template>
+                </li>
+                <li [ngbNavItem]="4">
+                    <a ngbNavLink>Packaging</a>
+                    <ng-template ngbNavContent>
+                        <h5>Register New Packaging Employer & Manage</h5>
+                        <form action="" class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="">Employer Name :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Agent Name">
+                                </div>
+                                <div class="col-6">
+                                    <label for="">NIC Number :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Agent NIC Number">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <label for="">Employer Contact No.</label>
+                                    <input type="text" class="form-control" placeholder="Enter Contact Number">
+                                </div>
+                                <div class="col-6">
+                                    <label for="">Email Address (Optional):</label>
+                                    <input type="text" class="form-control" placeholder="Enter Email Address">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <button class="btn btn-primary btn-sm">Add New Employer</button>
+                                        </div>
+                                        <div class="col-9">
+                                            <button class="btn btn-warning btn-sm">Reset Feilds</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="row">
+                            <hr>
+                            <div class="col-12">
+                                <h5>Manage Packaging Employers Details</h5>
+                                <form>
+                                    <div class="mb-3 row">
+                                        <label for="table-filtering-search" class="col-xs-3 col-sm-auto col-form-label">Search Branch By Anything:</label>
+                                        <div class="col-xs-3 col-sm-auto">
+                                            <input id="table-filtering-search" class="form-control" type="text" [formControl]="filter" />
+                                        </div>
+                                    </div>
+                                </form>
+                                
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Country</th>
+                                            <th scope="col">Area</th>
+                                            <th scope="col">Population</th>
+                                            <th scope="col">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let country of countries$ | async; index as i">
+                                            <th scope="row">{{ i + 1 }}</th>
+                                            <td>
+                                                <img
+                                                    [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag"
+                                                    class="me-2"
+                                                    style="width: 20px"
+                                                />
+                                                <ngb-highlight [result]="country.name" [term]="filter.value"></ngb-highlight>
+                                            </td>
+                                            <td><ngb-highlight [result]="country.area | number" [term]="filter.value"></ngb-highlight></td>
+                                            <td><ngb-highlight [result]="country.population | number" [term]="filter.value"></ngb-highlight></td>
+                                            <td>
+                                                <a href="" class="btn btn-success btn-sm">Update</a>
+                                                <a href="" class="ms-3 btn btn-danger btn-sm">delete</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </ng-template>
+                </li>
+                <li [ngbNavItem]="5">
+                    <a ngbNavLink>Line</a>
+                    <ng-template ngbNavContent>
+                        <h5>Register New Line Details & Manage</h5>
+                        <form action="" class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="">Shop Owner NIC No :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Shop Owner NIC Number">
+                                </div>
+                                <div class="col-6">
+                                    <label for="">Owner Name :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Owner Name">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <label for="">Shop Location. :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Shop Location">
+                                </div>
+                                <div class="col-6">
+                                    <label for="">Mobile No :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Mobile Number">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <button class="btn btn-primary btn-sm">Add New Line</button>
+                                        </div>
+                                        <div class="col-10">
+                                            <button class="btn btn-warning btn-sm">Reset Feilds</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="row">
+                            <hr>
+                            <div class="col-12">
+                                <h5>Manage Line Details</h5>
+                                <form>
+                                    <div class="mb-3 row">
+                                        <label for="table-filtering-search" class="col-xs-3 col-sm-auto col-form-label">Search Branch By Anything:</label>
+                                        <div class="col-xs-3 col-sm-auto">
+                                            <input id="table-filtering-search" class="form-control" type="text" [formControl]="filter" />
+                                        </div>
+                                    </div>
+                                </form>
+                                
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Country</th>
+                                            <th scope="col">Area</th>
+                                            <th scope="col">Population</th>
+                                            <th scope="col">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let country of countries$ | async; index as i">
+                                            <th scope="row">{{ i + 1 }}</th>
+                                            <td>
+                                                <img
+                                                    [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag"
+                                                    class="me-2"
+                                                    style="width: 20px"
+                                                />
+                                                <ngb-highlight [result]="country.name" [term]="filter.value"></ngb-highlight>
+                                            </td>
+                                            <td><ngb-highlight [result]="country.area | number" [term]="filter.value"></ngb-highlight></td>
+                                            <td><ngb-highlight [result]="country.population | number" [term]="filter.value"></ngb-highlight></td>
+                                            <td>
+                                                <a href="" class="btn btn-success btn-sm">Update</a>
+                                                <a href="" class="ms-3 btn btn-danger btn-sm">delete</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </ng-template>
+                </li>
+                <li [ngbNavItem]="6">
+                    <a ngbNavLink>Transport</a>
+                    <ng-template ngbNavContent>
+                        <p>
+                            Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id
+                            diam. Nulla facilisi.
+                            Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt
+                            eu, congue et odio.
+                            Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices
+                            et. Sed diam urna,
+                            egestas ut ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu. Vivamus
+                            faucibus nisl enim, nec
+                            tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci varius
+                            natoque penatibus et
+                            magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem aliquet
+                            ultricies in eget
+                            neque. Phasellus nec tortor vel tellus pulvinar feugiat.
+                        </p>
+                    </ng-template>
+                </li>
+            </ul>
+
+            <div [ngbNavOutlet]="nav" class="mt-2"></div>
+
+            <!-- <pre>Active: {{ active }}</pre> -->
+        </div>
+    </div>
+
+    <div class="row d-md-none d-lg-none d-xl-none">
+        <div class="col-12">
+            <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+                <li [ngbNavItem]="1">
+                    <a ngbNavLink>Main Branches</a>
+                    <ng-template ngbNavContent>
+                        <h5>Register Your Main Branches & Manage</h5>
+                        <form action="" class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="branchName">Branch Name :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Branch Name">
+                                </div>
+                                <div class="col-6">
+                                    <label for="branchName">Branch Address :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Branch Address">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <label for="branchName">Contact Number :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Branch Mobile Number">
+                                </div>
+                                <div class="col-6">
+                                    <label for="branchName">Branch Email (Optional) :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Branch Email Address">
+                                </div>
+                            </div>
+
+                            <div class="row mt-3">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-10">
+                                            <button class="btn btn-primary btn-sm">Add New Branch</button>
+                                        </div>
+                                        <div class="col-2">
+                                            <button class="btn btn-warning btn-sm">Reset Feilds</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                        <div class="row">
+                            <hr>
+                            <div class="col-12">
+                                <h5>Manage Branches</h5>
+                                <form>
+                                    <div class="mb-3 row">
+                                        <label for="table-filtering-search" class="col-xs-3 col-sm-auto col-form-label">Search Branch By Anything:</label>
+                                        <div class="col-xs-3 col-sm-auto">
+                                            <input id="table-filtering-search" class="form-control" type="text" [formControl]="filter" />
+                                        </div>
+                                    </div>
+                                </form>
+                                
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Country</th>
+                                            <th scope="col">Area</th>
+                                            <th scope="col">Population</th>
+                                            <th scope="col">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let country of countries$ | async; index as i">
+                                            <th scope="row">{{ i + 1 }}</th>
+                                            <td>
+                                                <img
+                                                    [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag"
+                                                    class="me-2"
+                                                    style="width: 20px"
+                                                />
+                                                <ngb-highlight [result]="country.name" [term]="filter.value"></ngb-highlight>
+                                            </td>
+                                            <td><ngb-highlight [result]="country.area | number" [term]="filter.value"></ngb-highlight></td>
+                                            <td><ngb-highlight [result]="country.population | number" [term]="filter.value"></ngb-highlight></td>
+                                            <td>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <a href="" class="btn btn-success btn-sm">Update</a>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <a href="" class="btn btn-danger btn-sm">delete</a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </ng-template>
+                </li>
+                <li [ngbNavItem]="2">
+                    <a ngbNavLink>Agent</a>
+                    <ng-template ngbNavContent>
+                        <h5>Register New Agent & Manage</h5>
+                        <form action="" class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="">Agent Name :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Agent Name">
+                                </div>
+                                <div class="col-6">
+                                    <label for="">NIC Number :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Agent NIC Number">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <label for="">Agent Contact No.</label>
+                                    <input type="text" class="form-control" placeholder="Enter Contact Number">
+                                </div>
+                                <div class="col-6">
+                                    <label for="">Email Address (Optional):</label>
+                                    <input type="text" class="form-control" placeholder="Enter Email Address">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <button class="btn btn-primary btn-sm">Add New Branch</button>
+                                        </div>
+                                        <div class="col-9">
+                                            <button class="btn btn-warning btn-sm">Reset Feilds</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="row">
+                            <hr>
+                            <div class="col-12">
+                                <h5>Manage Agent Details</h5>
+                                <form>
+                                    <div class="mb-3 row">
+                                        <label for="table-filtering-search" class="col-xs-3 col-sm-auto col-form-label">Search Branch By Anything:</label>
+                                        <div class="col-xs-3 col-sm-auto">
+                                            <input id="table-filtering-search" class="form-control" type="text" [formControl]="filter" />
+                                        </div>
+                                    </div>
+                                </form>
+                                
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Country</th>
+                                            <th scope="col">Area</th>
+                                            <th scope="col">Population</th>
+                                            <th scope="col">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let country of countries$ | async; index as i">
+                                            <th scope="row">{{ i + 1 }}</th>
+                                            <td>
+                                                <img
+                                                    [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag"
+                                                    class="me-2"
+                                                    style="width: 20px"
+                                                />
+                                                <ngb-highlight [result]="country.name" [term]="filter.value"></ngb-highlight>
+                                            </td>
+                                            <td><ngb-highlight [result]="country.area | number" [term]="filter.value"></ngb-highlight></td>
+                                            <td><ngb-highlight [result]="country.population | number" [term]="filter.value"></ngb-highlight></td>
+                                            <td>
+                                                <a href="" class="btn btn-success btn-sm">Update</a>
+                                                <a href="" class="ms-3 btn btn-danger btn-sm">delete</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </ng-template>
+                </li>
+                <li [ngbNavItem]="3">
+                    <a ngbNavLink>Labeling</a>
+                    <ng-template ngbNavContent>
+                        <h5>Register New Labling Employer & Manage</h5>
+                        <form action="" class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="">Employer Name :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Agent Name">
+                                </div>
+                                <div class="col-6">
+                                    <label for="">NIC Number :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Agent NIC Number">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <label for="">Employer Contact No.</label>
+                                    <input type="text" class="form-control" placeholder="Enter Contact Number">
+                                </div>
+                                <div class="col-6">
+                                    <label for="">Email Address (Optional):</label>
+                                    <input type="text" class="form-control" placeholder="Enter Email Address">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <button class="btn btn-primary btn-sm">Add New Employer</button>
+                                        </div>
+                                        <div class="col-9">
+                                            <button class="btn btn-warning btn-sm">Reset Feilds</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="row">
+                            <hr>
+                            <div class="col-12">
+                                <h5>Manage Labling Employers Details</h5>
+                                <form>
+                                    <div class="mb-3 row">
+                                        <label for="table-filtering-search" class="col-xs-3 col-sm-auto col-form-label">Search Branch By Anything:</label>
+                                        <div class="col-xs-3 col-sm-auto">
+                                            <input id="table-filtering-search" class="form-control" type="text" [formControl]="filter" />
+                                        </div>
+                                    </div>
+                                </form>
+                                
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Country</th>
+                                            <th scope="col">Area</th>
+                                            <th scope="col">Population</th>
+                                            <th scope="col">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let country of countries$ | async; index as i">
+                                            <th scope="row">{{ i + 1 }}</th>
+                                            <td>
+                                                <img
+                                                    [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag"
+                                                    class="me-2"
+                                                    style="width: 20px"
+                                                />
+                                                <ngb-highlight [result]="country.name" [term]="filter.value"></ngb-highlight>
+                                            </td>
+                                            <td><ngb-highlight [result]="country.area | number" [term]="filter.value"></ngb-highlight></td>
+                                            <td><ngb-highlight [result]="country.population | number" [term]="filter.value"></ngb-highlight></td>
+                                            <td>
+                                                <a href="" class="btn btn-success btn-sm">Update</a>
+                                                <a href="" class="ms-3 btn btn-danger btn-sm">delete</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </ng-template>
+                </li>
+                <li [ngbNavItem]="4">
+                    <a ngbNavLink>Packaging</a>
+                    <ng-template ngbNavContent>
+                        <h5>Register New Packaging Employer & Manage</h5>
+                        <form action="" class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="">Employer Name :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Agent Name">
+                                </div>
+                                <div class="col-6">
+                                    <label for="">NIC Number :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Agent NIC Number">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <label for="">Employer Contact No.</label>
+                                    <input type="text" class="form-control" placeholder="Enter Contact Number">
+                                </div>
+                                <div class="col-6">
+                                    <label for="">Email Address (Optional):</label>
+                                    <input type="text" class="form-control" placeholder="Enter Email Address">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <button class="btn btn-primary btn-sm">Add New Employer</button>
+                                        </div>
+                                        <div class="col-9">
+                                            <button class="btn btn-warning btn-sm">Reset Feilds</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="row">
+                            <hr>
+                            <div class="col-12">
+                                <h5>Manage Packaging Employers Details</h5>
+                                <form>
+                                    <div class="mb-3 row">
+                                        <label for="table-filtering-search" class="col-xs-3 col-sm-auto col-form-label">Search Branch By Anything:</label>
+                                        <div class="col-xs-3 col-sm-auto">
+                                            <input id="table-filtering-search" class="form-control" type="text" [formControl]="filter" />
+                                        </div>
+                                    </div>
+                                </form>
+                                
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Country</th>
+                                            <th scope="col">Area</th>
+                                            <th scope="col">Population</th>
+                                            <th scope="col">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let country of countries$ | async; index as i">
+                                            <th scope="row">{{ i + 1 }}</th>
+                                            <td>
+                                                <img
+                                                    [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag"
+                                                    class="me-2"
+                                                    style="width: 20px"
+                                                />
+                                                <ngb-highlight [result]="country.name" [term]="filter.value"></ngb-highlight>
+                                            </td>
+                                            <td><ngb-highlight [result]="country.area | number" [term]="filter.value"></ngb-highlight></td>
+                                            <td><ngb-highlight [result]="country.population | number" [term]="filter.value"></ngb-highlight></td>
+                                            <td>
+                                                <a href="" class="btn btn-success btn-sm">Update</a>
+                                                <a href="" class="ms-3 btn btn-danger btn-sm">delete</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </ng-template>
+                </li>
+                <li [ngbNavItem]="5">
+                    <a ngbNavLink>Line</a>
+                    <ng-template ngbNavContent>
+                        <h5>Register New Line Details & Manage</h5>
+                        <form action="" class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="">Shop Owner NIC No :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Shop Owner NIC Number">
+                                </div>
+                                <div class="col-6">
+                                    <label for="">Owner Name :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Owner Name">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <label for="">Shop Location. :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Shop Location">
+                                </div>
+                                <div class="col-6">
+                                    <label for="">Mobile No :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Mobile Number">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <button class="btn btn-primary btn-sm">Add New Line</button>
+                                        </div>
+                                        <div class="col-10">
+                                            <button class="btn btn-warning btn-sm">Reset Feilds</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="row">
+                            <hr>
+                            <div class="col-12">
+                                <h5>Manage Line Details</h5>
+                                <form>
+                                    <div class="mb-3 row">
+                                        <label for="table-filtering-search" class="col-xs-3 col-sm-auto col-form-label">Search Branch By Anything:</label>
+                                        <div class="col-xs-3 col-sm-auto">
+                                            <input id="table-filtering-search" class="form-control" type="text" [formControl]="filter" />
+                                        </div>
+                                    </div>
+                                </form>
+                                
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Country</th>
+                                            <th scope="col">Area</th>
+                                            <th scope="col">Population</th>
+                                            <th scope="col">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let country of countries$ | async; index as i">
+                                            <th scope="row">{{ i + 1 }}</th>
+                                            <td>
+                                                <img
+                                                    [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag"
+                                                    class="me-2"
+                                                    style="width: 20px"
+                                                />
+                                                <ngb-highlight [result]="country.name" [term]="filter.value"></ngb-highlight>
+                                            </td>
+                                            <td><ngb-highlight [result]="country.area | number" [term]="filter.value"></ngb-highlight></td>
+                                            <td><ngb-highlight [result]="country.population | number" [term]="filter.value"></ngb-highlight></td>
+                                            <td>
+                                                <a href="" class="btn btn-success btn-sm">Update</a>
+                                                <a href="" class="ms-3 btn btn-danger btn-sm">delete</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </ng-template>
+                </li>
+                <li [ngbNavItem]="6">
+                    <a ngbNavLink>Transport</a>
+                    <ng-template ngbNavContent>
+                        <p>
+                            Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id
+                            diam. Nulla facilisi.
+                            Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt
+                            eu, congue et odio.
+                            Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices
+                            et. Sed diam urna,
+                            egestas ut ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu. Vivamus
+                            faucibus nisl enim, nec
+                            tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci varius
+                            natoque penatibus et
+                            magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem aliquet
+                            ultricies in eget
+                            neque. Phasellus nec tortor vel tellus pulvinar feugiat.
+                        </p>
+                    </ng-template>
+                </li>
+            </ul>
+
+            <div [ngbNavOutlet]="nav" class="mt-2"></div>
+
+            <!-- <pre>Active: {{ active }}</pre> -->
+        </div>
+    </div>
+</div>

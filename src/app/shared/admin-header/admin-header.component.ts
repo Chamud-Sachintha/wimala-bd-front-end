@@ -23,12 +23,12 @@ export class AdminHeaderComponent implements OnInit {
       this.menuItems = [
         {
           title: 'Dashboard',
-          path: '/app/customer',
+          path: '/app/admin',
           class: 'fa fa-home mr-3'
         },
         {
-          title: 'See Menu (s) & Buy',
-          path: '/app/customer/buy',
+          title: 'Member Registration',
+          path: '/app/admin/registration',
           class: 'fa fa-home mr-3'
         },
         {
