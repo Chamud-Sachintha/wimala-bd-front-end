@@ -7,12 +7,20 @@ import { MemberRegistrationComponent } from './admin/member-registration/member-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { StockManagementComponent } from './admin/stock-management/stock-management.component';
+import { ProductionManagementComponent } from './admin/production-management/production-management.component';
+import { LineManagementComponent } from './admin/line-management/line-management.component';
+import { SalaryMenegemntComponent } from './admin/salary-menegemnt/salary-menegemnt.component';
+import { ReportsComponent } from './admin/reports/reports.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     MemberRegistrationComponent,
-    StockManagementComponent
+    StockManagementComponent,
+    ProductionManagementComponent,
+    LineManagementComponent,
+    SalaryMenegemntComponent,
+    ReportsComponent
   ],
   imports: [
     CommonModule,

@@ -47,7 +47,7 @@ export class MemberRegistrationComponent implements OnInit {
 
   active = 1;
   countries$!: Observable<Country[]>;
-	filter = new FormControl('');
+  filter = new FormControl('');
 
   constructor(pipe: DecimalPipe) { 
     this.countries$ = this.filter.valueChanges.pipe(

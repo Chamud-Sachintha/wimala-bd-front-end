@@ -41,18 +41,23 @@ export class AdminHeaderComponent implements OnInit {
           class: 'fa fa-home mr-3'
         },
         {
-          title: 'My Orders',
-          path: '/app/customer/orders',
+          title: 'Production Management',
+          path: '/app/admin/production-management',
           class: 'fa fa-home mr-3'
         },
         {
-          title: 'Add Coupons',
-          path: '/add-customer',
+          title: 'Line Management',
+          path: '/app/admin/line-management',
           class: 'fa fa-home mr-3'
         },
         {
-          title: 'Profile Settings',
-          path: '/app/customer/profile',
+          title: 'Salary Management',
+          path: '/app/admin/salary-management',
+          class: 'fa fa-home mr-3'
+        },
+        {
+          title: 'Reports',
+          path: '/app/admin/reports',
           class: 'fa fa-home mr-3'
         },
         {
