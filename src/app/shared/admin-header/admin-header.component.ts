@@ -18,6 +18,10 @@ export class AdminHeaderComponent implements OnInit {
     this.loadMainMenuItems();
   }
 
+  // onClickCollapseMenu() {
+  //   this.menuCollapse();
+  // }
+
   loadMainMenuItems() {
     if (this.router.url.includes('admin')) {
       this.menuItems = [
@@ -32,8 +36,8 @@ export class AdminHeaderComponent implements OnInit {
           class: 'fa fa-home mr-3'
         },
         {
-          title: 'My Cart',
-          path: '/app/customer/cart',
+          title: 'Stock Management',
+          path: '/app/admin/stock-management',
           class: 'fa fa-home mr-3'
         },
         {

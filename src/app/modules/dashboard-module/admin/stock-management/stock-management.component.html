@@ -1,0 +1,235 @@
+<div id="content" class="p-4 p-md-5 pt-5">
+    <h2 class="mb-4">Stock Management</h2>
+
+    <div class="row d-none d-md-block d-lg-block d-xl-block">
+        <div class="col-12">
+            <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+                <li [ngbNavItem]="1">
+                    <a ngbNavLink>Wraping Leaves</a>
+                    <ng-template ngbNavContent>
+                        <h5>Manage Wraping Leaves Stock</h5>
+                        <form action="" class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="branchName">Leave Type :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Wraping Leave Type">
+                                </div>
+                                <div class="col-6">
+                                    <label for="branchName">Added Date :</label>
+                                    <input type="date" class="form-control" placeholder="Enter Branch Address">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <label for="branchName">Set Quantity :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Quantity">
+                                </div>
+                                <div class="col-6">
+                                    <label for="branchName">Unit Price (Price of 1kg) :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Unit Price">
+                                </div>
+                            </div>
+
+                            <div class="row mt-3">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <button class="btn btn-primary btn-sm">Add New Leaves</button>
+                                        </div>
+                                        <div class="col-9">
+                                            <button class="btn btn-warning btn-sm">Reset Feilds</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </ng-template>
+                </li>
+                <li [ngbNavItem]="2">
+                    <a ngbNavLink>Agent</a>
+                    <ng-template ngbNavContent>
+                        <h5>Register New Agent & Manage</h5>
+                        <form action="" class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="">Agent Name :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Agent Name">
+                                </div>
+                                <div class="col-6">
+                                    <label for="">NIC Number :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Agent NIC Number">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <label for="">Agent Contact No.</label>
+                                    <input type="text" class="form-control" placeholder="Enter Contact Number">
+                                </div>
+                                <div class="col-6">
+                                    <label for="">Email Address (Optional):</label>
+                                    <input type="text" class="form-control" placeholder="Enter Email Address">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <button class="btn btn-primary btn-sm">Add New Branch</button>
+                                        </div>
+                                        <div class="col-9">
+                                            <button class="btn btn-warning btn-sm">Reset Feilds</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </ng-template>
+                </li>
+                <li [ngbNavItem]="3">
+                    <a ngbNavLink>Labeling</a>
+                    <ng-template ngbNavContent>
+                        <h5>Register New Labling Employer & Manage</h5>
+                        <form action="" class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="">Employer Name :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Agent Name">
+                                </div>
+                                <div class="col-6">
+                                    <label for="">NIC Number :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Agent NIC Number">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <label for="">Employer Contact No.</label>
+                                    <input type="text" class="form-control" placeholder="Enter Contact Number">
+                                </div>
+                                <div class="col-6">
+                                    <label for="">Email Address (Optional):</label>
+                                    <input type="text" class="form-control" placeholder="Enter Email Address">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <button class="btn btn-primary btn-sm">Add New Employer</button>
+                                        </div>
+                                        <div class="col-9">
+                                            <button class="btn btn-warning btn-sm">Reset Feilds</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </ng-template>
+                </li>
+                <li [ngbNavItem]="4">
+                    <a ngbNavLink>Packaging</a>
+                    <ng-template ngbNavContent>
+                        <h5>Register New Packaging Employer & Manage</h5>
+                        <form action="" class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="">Employer Name :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Agent Name">
+                                </div>
+                                <div class="col-6">
+                                    <label for="">NIC Number :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Agent NIC Number">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <label for="">Employer Contact No.</label>
+                                    <input type="text" class="form-control" placeholder="Enter Contact Number">
+                                </div>
+                                <div class="col-6">
+                                    <label for="">Email Address (Optional):</label>
+                                    <input type="text" class="form-control" placeholder="Enter Email Address">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <button class="btn btn-primary btn-sm">Add New Employer</button>
+                                        </div>
+                                        <div class="col-9">
+                                            <button class="btn btn-warning btn-sm">Reset Feilds</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </ng-template>
+                </li>
+                <li [ngbNavItem]="5">
+                    <a ngbNavLink>Line</a>
+                    <ng-template ngbNavContent>
+                        <h5>Register New Line Details & Manage</h5>
+                        <form action="" class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="">Shop Owner NIC No :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Shop Owner NIC Number">
+                                </div>
+                                <div class="col-6">
+                                    <label for="">Owner Name :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Owner Name">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <label for="">Shop Location. :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Shop Location">
+                                </div>
+                                <div class="col-6">
+                                    <label for="">Mobile No :</label>
+                                    <input type="text" class="form-control" placeholder="Enter Mobile Number">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <button class="btn btn-primary btn-sm">Add New Line</button>
+                                        </div>
+                                        <div class="col-10">
+                                            <button class="btn btn-warning btn-sm">Reset Feilds</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </ng-template>
+                </li>
+                <li [ngbNavItem]="6">
+                    <a ngbNavLink>Transport</a>
+                    <ng-template ngbNavContent>
+                        <p>
+                            Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id
+                            diam. Nulla facilisi.
+                            Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt
+                            eu, congue et odio.
+                            Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices
+                            et. Sed diam urna,
+                            egestas ut ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu. Vivamus
+                            faucibus nisl enim, nec
+                            tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci varius
+                            natoque penatibus et
+                            magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem aliquet
+                            ultricies in eget
+                            neque. Phasellus nec tortor vel tellus pulvinar feugiat.
+                        </p>
+                    </ng-template>
+                </li>
+            </ul>
+
+            <div [ngbNavOutlet]="nav" class="mt-2"></div>
+
+            <!-- <pre>Active: {{ active }}</pre> -->
+        </div>
+    </div>
+</div>
