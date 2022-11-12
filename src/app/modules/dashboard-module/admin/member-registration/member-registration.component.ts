@@ -13,14 +13,14 @@ interface Country {
 
 const COUNTRIES: Country[] = [
 	{
-		name: 'Russia',
-		flag: 'f/f3/Flag_of_Russia.svg',
+		name: 'Mr.Kamal Nishantha',
+		flag: '',
 		area: 17075200,
 		population: 146989754,
 	},
 	{
-		name: 'France',
-		flag: 'c/c3/Flag_of_France.svg',
+		name: 'Mrs.Bhagya Siriwardane',
+		flag: '',
 		area: 640679,
 		population: 64979548,
 	},

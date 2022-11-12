@@ -11,6 +11,7 @@ import { ProductionManagementComponent } from './admin/production-management/pro
 import { LineManagementComponent } from './admin/line-management/line-management.component';
 import { SalaryMenegemntComponent } from './admin/salary-menegemnt/salary-menegemnt.component';
 import { ReportsComponent } from './admin/reports/reports.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -20,14 +21,15 @@ import { ReportsComponent } from './admin/reports/reports.component';
     ProductionManagementComponent,
     LineManagementComponent,
     SalaryMenegemntComponent,
-    ReportsComponent
+    ReportsComponent,
   ],
   imports: [
     CommonModule,
     DashboardModuleRoutingModule,
     NgbModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule,
   ],
   providers: [DecimalPipe],
 })
