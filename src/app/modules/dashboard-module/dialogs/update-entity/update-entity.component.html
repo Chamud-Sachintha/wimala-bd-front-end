@@ -1,16 +1,246 @@
-<div class="row">
+<div class="row" *ngIf="this.mydata.isMainBranch">
     <div class="card-body">
         <h1 class="card-title">Update Main Branch</h1>
         <hr>
-        <form action="" class="form-group">
+        <form action="" class="form-group" [formGroup]="updateMainBranchForm" (ngSubmit)="onSubmitUpdateForm()">
             <div class="row">
                 <div class="col-6">
                     <label for="">Employee Name :</label>
-                    <input type="text" class="form-control mt-2" placeholder="Eg. Kamal Nishantha">
+                    <input type="text" class="form-control mt-2" placeholder="Eg. Kamal Nishantha" formControlName="employeeName">
                 </div>
                 <div class="col-6">
+                    <label for="">Employee Address :</label>
+                    <input type="text" class="form-control mt-2" placeholder="Eg. Kamal Nishantha" formControlName="employeeAddress">
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-6">
+                    <label for="">NIC Number :</label>
+                    <input type="text" class="form-control mt-2" placeholder="Eg. Kamal Nishantha" formControlName="employeeNicNo">
+                </div>
+                <div class="col-6">
+                    <label for="">Employee Ref No :</label>
+                    <input type="text" class="form-control mt-2" placeholder="Eg. Kamal Nishantha" formControlName="employeeRefNo">
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-6">
+                    <button class="btn btn-primary btn-sm">Update Branch</button>
+                </div>
+                <div class="col-6">
+                    <button class="btn btn-success btn-sm">Reset Feilds</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row" *ngIf="this.mydata.isAgent">
+    <div class="card-body">
+        <h1 class="card-title">Update Agent Details</h1>
+        <hr>
+        <form action="" class="form-group" [formGroup]="updateAgentdetailsForm" (ngSubmit)="onSubmitAgentDetailsUpdateForm()">
+            <div class="row">
+                <div class="col-6">
                     <label for="">Employee Name :</label>
-                    <input type="text" class="form-control mt-2" placeholder="Eg. Kamal Nishantha">
+                    <input type="text" class="form-control mt-2" placeholder="Eg. Kamal Nishantha" formControlName="agentname">
+                </div>
+                <div class="col-6">
+                    <label for="">Employee Location :</label>
+                    <input type="text" class="form-control mt-2" placeholder="Eg. Kamal Nishantha" formControlName="agentLocation">
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-6">
+                    <label for="">NIC Number :</label>
+                    <input type="text" class="form-control mt-2" placeholder="Eg. Kamal Nishantha" formControlName="agentNicNumber">
+                </div>
+                <div class="col-6">
+                    <label for="">Employee Ref No :</label>
+                    <input type="text" class="form-control mt-2" placeholder="Eg. Kamal Nishantha" formControlName="agentRefNo">
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-6">
+                    <button class="btn btn-primary btn-sm">Update Agent</button>
+                </div>
+                <div class="col-6">
+                    <button class="btn btn-success btn-sm">Reset Feilds</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row" *ngIf="this.mydata.isLableEmployee">
+    <div class="card-body">
+        <h1 class="card-title">Update Labling Employee Details</h1>
+        <hr>
+        <form action="" class="form-group" [formGroup]="updateLablingEmployeeForm" (ngSubmit)="onSubmitLablingEmployeeUpdateForm()">
+            <div class="row">
+                <div class="col-6">
+                    <label for="">Employee Name :</label>
+                    <input type="text" class="form-control mt-2" placeholder="Eg. Kamal Nishantha" formControlName="labelEmployeeName">
+                </div>
+                <div class="col-6">
+                    <label for="">Employee Address :</label>
+                    <input type="text" class="form-control mt-2" placeholder="Eg. Kamal Nishantha" formControlName="labelEmpAddress">
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-6">
+                    <label for="">NIC Number :</label>
+                    <input type="text" class="form-control mt-2" placeholder="Eg. Kamal Nishantha" formControlName="labelEmpNicNumber">
+                </div>
+                <div class="col-6">
+                    <label for="">Employee Contact No :</label>
+                    <input type="text" class="form-control mt-2" placeholder="Eg. Kamal Nishantha" formControlName="labelEmpContactNo">
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-6">
+                    <label for="">Employee Ref No :</label>
+                    <input type="text" class="form-control mt-2" placeholder="Eg. Kamal Nishantha" formControlName="labelEmpRefNo">
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-6">
+                    <button class="btn btn-primary btn-sm">Update Labling Employee</button>
+                </div>
+                <div class="col-6">
+                    <button class="btn btn-success btn-sm">Reset Feilds</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row" *ngIf="this.mydata.isPackagingEmployee">
+    <div class="card-body">
+        <h1 class="card-title">Update Packaging Employee Details</h1>
+        <hr>
+        <form action="" class="form-group" [formGroup]="updatePackagingEmployeeForm" (ngSubmit)="onSubmitPackagingEmployeeUpdateForm()">
+            <div class="row">
+                <div class="col-6">
+                    <label for="">Employee Name :</label>
+                    <input type="text" class="form-control mt-2" placeholder="Eg. Kamal Nishantha" formControlName="packagingEmpName">
+                </div>
+                <div class="col-6">
+                    <label for="">Employee Address :</label>
+                    <input type="text" class="form-control mt-2" placeholder="Eg. Kamal Nishantha" formControlName="packagingEmpAddress">
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-6">
+                    <label for="">NIC Number :</label>
+                    <input type="text" class="form-control mt-2" placeholder="Eg. Kamal Nishantha" formControlName="packagingEmpNicNo">
+                </div>
+                <div class="col-6">
+                    <label for="">Employee Contact No :</label>
+                    <input type="text" class="form-control mt-2" placeholder="Eg. Kamal Nishantha" formControlName="packagingEmpContactNo">
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-6">
+                    <label for="">Employee Ref No :</label>
+                    <input type="text" class="form-control mt-2" placeholder="Eg. Kamal Nishantha" formControlName="packagingEmpRefNo">
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-6">
+                    <button class="btn btn-primary btn-sm">Update Packaging Employee</button>
+                </div>
+                <div class="col-6">
+                    <button class="btn btn-success btn-sm">Reset Feilds</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row" *ngIf="this.mydata.isLine">
+    <div class="card-body">
+        <h1 class="card-title">Update Shop Details</h1>
+        <hr>
+        <form action="" [formGroup]="updateShopDetailsForm" class="form-group" (ngSubmit)="onSubmitShopDetailsUpdateForm()">
+            <div class="row">
+                <div class="col-6">
+                    <label for="">Shop Owner NIC No :</label>
+                    <input type="text" class="form-control" placeholder="Enter Shop Owner NIC Number" formControlName="shopOwnerNicNo">
+                </div>
+                <div class="col-6">
+                    <label for="">Owner Name :</label>
+                    <input type="text" class="form-control" placeholder="Enter Owner Name" formControlName="shopOwnerName">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-6">
+                    <label for="">Shop Location. :</label>
+                    <input type="text" class="form-control" placeholder="Enter Shop Location" formControlName="shopLocation">
+                </div>
+                <div class="col-6">
+                    <label for="">Mobile No :</label>
+                    <input type="text" class="form-control" placeholder="Enter Mobile Number" formControlName="shopMobileNo">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-2">
+                            <button class="btn btn-primary btn-sm">Update Line Details</button>
+                        </div>
+                        <div class="col-10">
+                            <button class="btn btn-warning btn-sm">Reset Feilds</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row" *ngIf="this.mydata.isTransportEmployee">
+    <div class="card-body">
+        <h1 class="card-title">Update Transport Employee Details</h1>
+        <hr>
+        <form action="" [formGroup]="updateTransportEmployeeForm" class="form-group" (ngSubmit)="onSubmitTransportEmployeeUpdateForm()">
+            <div class="row">
+                <div class="col-6">
+                    <label for="">Employee Name :</label>
+                    <input type="text" class="form-control" placeholder="Enter Shop Owner NIC Number" formControlName="transportEmpNicNo">
+                </div>
+                <div class="col-6">
+                    <label for="">Employee NIC No :</label>
+                    <input type="text" class="form-control" placeholder="Enter Owner Name" formControlName="transportEmpName">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-6">
+                    <label for="">Employee Mobile :</label>
+                    <input type="text" class="form-control" placeholder="Enter Shop Location" formControlName="transportEmpMobile">
+                </div>
+                
+            </div>
+            <div class="row mt-3">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-2">
+                            <button class="btn btn-primary btn-sm">Update Employee Details</button>
+                        </div>
+                        <div class="col-10">
+                            <button class="btn btn-warning btn-sm">Reset Feilds</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </form>

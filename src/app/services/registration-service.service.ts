@@ -54,4 +54,24 @@ export class RegistrationServiceService {
     const path = "http://localhost:8080/get/allAgentList";
     return this.http.get<any[]>(path);
   }
+
+  getAllLablingEmployeeList():Observable<any[]> {
+    const path = "http://localhost:8080/get/allLablingEmployees";
+    return this.http.get<any[]>(path);
+  }
+
+  getAllPackagingEmployeeList():Observable<any[]> {
+    const path = "http://localhost:8080/get/allPackagingEmployees";
+    return this.http.get<any[]>(path);
+  }
+
+  getAllShopdetailsList():Observable<any[]> {
+    const path = "http://localhost:8080/get/allShopDetails";
+    return this.http.get<any[]>(path);
+  }
+
+  getAllTransportEmployeeList():Observable<any[]> {
+    const path = "http://localhost:8080/get/allTransportEmployees";
+    return this.http.get<any[]>(path);
+  }
 }

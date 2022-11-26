@@ -31,8 +31,9 @@ import { UpdateEntityComponent } from './dialogs/update-entity/update-entity.com
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    MatDialogModule
+    MatDialogModule,
   ],
   providers: [DecimalPipe],
+  entryComponents: [UpdateEntityComponent]
 })
 export class DashboardModuleModule { }

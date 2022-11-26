@@ -42,7 +42,7 @@
                                             <button class="btn btn-primary btn-sm">Add New Branch</button>
                                         </div>
                                         <div class="col-9">
-                                            <button class="btn btn-warning btn-sm">Reset Feilds</button>
+                                            <button type="reset" class="btn btn-warning btn-sm">Reset Feilds</button>
                                         </div>
                                     </div>
                                 </div>
@@ -73,7 +73,7 @@
                                             <td>
                                                 <!-- <a href="" class="btn btn-success btn-sm" (click)="openDialog()" >Update</a> -->
                                                 <button class="btn btn-success btn-sm"
-                                                    (click)="openMainBranchUpdateDialog()">Update</button>
+                                                    (click)="openMainBranchUpdateDialog(eachBranch.branchRefNo)">Update</button>
                                                 <a href="" class="ms-3 btn btn-danger btn-sm">Delete</a>
                                             </td>
                                         </tr>
@@ -150,7 +150,7 @@
                                             <td>
                                                 <!-- <a href="" class="btn btn-success btn-sm" (click)="openDialog()" >Update</a> -->
                                                 <button class="btn btn-success btn-sm"
-                                                    (click)="openAgenthUpdateDialog()">Update</button>
+                                                    (click)="openAgenthUpdateDialog(eachAgent.agentRefNo)">Update</button>
                                                 <a href="" class="ms-3 btn btn-danger btn-sm">Delete</a>
                                             </td>
                                         </tr>
@@ -212,7 +212,37 @@
                         </form>
                         <div class="row">
                             <hr>
+                            <div class="col-12">
+                                <h5>All Labling Employees</h5>
 
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Employee Name</th>
+                                            <th scope="col">NIC Number</th>
+                                            <th scope="col">Contact No</th>
+                                            <th scope="col">Address</th>
+                                            <th scope="col">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let eachLablingEmployee of this.allLablingEmployeeList">
+                                            <td>{{ eachLablingEmployee.labelEmpRefNo }}</td>
+                                            <td>{{ eachLablingEmployee.labelEmployeeName }}</td>
+                                            <td>{{ eachLablingEmployee.labelEmpNicNumber }}</td>
+                                            <td>{{ eachLablingEmployee.labelEmpContactNo }}</td>
+                                            <td>{{ eachLablingEmployee.labelEmpAddress }}</td>
+                                            <td>
+                                                <!-- <a href="" class="btn btn-success btn-sm" (click)="openDialog()" >Update</a> -->
+                                                <button class="btn btn-success btn-sm"
+                                                    (click)="openLablingEmployeeUpdateDialog(eachLablingEmployee.labelEmpRefNo)">Update</button>
+                                                <a href="" class="ms-3 btn btn-danger btn-sm">Delete</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </ng-template>
                 </li>
@@ -262,7 +292,37 @@
                         </form>
                         <div class="row">
                             <hr>
+                            <div class="col-12">
+                                <h5>All Labling Employees</h5>
 
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Employee Name</th>
+                                            <th scope="col">NIC Number</th>
+                                            <th scope="col">Contact No</th>
+                                            <th scope="col">Address</th>
+                                            <th scope="col">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let eachPackagingEmployee of this.allPackagingEmployeeList">
+                                            <td>{{ eachPackagingEmployee.packagingEmpRefNo }}</td>
+                                            <td>{{ eachPackagingEmployee.packagingEmpName }}</td>
+                                            <td>{{ eachPackagingEmployee.packagingEmpNicNo }}</td>
+                                            <td>{{ eachPackagingEmployee.packagingEmpAddress }}</td>
+                                            <td>{{ eachPackagingEmployee.packagingEmpContactNo }}</td>
+                                            <td>
+                                                <!-- <a href="" class="btn btn-success btn-sm" (click)="openDialog()" >Update</a> -->
+                                                <button class="btn btn-success btn-sm"
+                                                    (click)="this.openPackagingEmployeeUpdateDialog(eachPackagingEmployee.packagingEmpRefNo)">Update</button>
+                                                <a href="" class="ms-3 btn btn-danger btn-sm">Delete</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </ng-template>
                 </li>
@@ -306,7 +366,37 @@
                         </form>
                         <div class="row">
                             <hr>
+                            <div class="col-12">
+                                <h5>All Shop Details</h5>
 
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">NIC Number</th>
+                                            <th scope="col">Owner Name</th>
+                                            <th scope="col">Location</th>
+                                            <th scope="col">Mobile Number</th>
+                                            <th scope="col">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let eachShop of this.allShopDetailsList">
+                                            <td>Ref No</td>
+                                            <td>{{ eachShop.shopOwnerNicNo }}</td>
+                                            <td>{{ eachShop.shopOwnerName }}</td>
+                                            <td>{{ eachShop.shopLocation }}</td>
+                                            <td>{{ eachShop.shopMobileNo }}</td>
+                                            <td>
+                                                <!-- <a href="" class="btn btn-success btn-sm" (click)="openDialog()" >Update</a> -->
+                                                <button class="btn btn-success btn-sm"
+                                                    (click)="openLineDetailsUpdateDialog(eachShop.shopOwnerNicNo)">Update</button>
+                                                <a href="" class="ms-3 btn btn-danger btn-sm">Delete</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </ng-template>
                 </li>
@@ -346,7 +436,35 @@
                         </form>
                         <div class="row">
                             <hr>
+                            <div class="col-12">
+                                <h5>All Transport Employee List</h5>
 
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Employee NIC No</th>
+                                            <th scope="col">Employee Name</th>
+                                            <th scope="col">Mobile Number</th>
+                                            <th scope="col">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let eachEmployee of this.allTransportEmployeeList">
+                                            <td>Ref No</td>
+                                            <td>{{ eachEmployee.transportEmpNicNo }}</td>
+                                            <td>{{ eachEmployee.transportEmpName }}</td>
+                                            <td>{{ eachEmployee.transportEmpMobile }}</td>
+                                            <td>
+                                                <!-- <a href="" class="btn btn-success btn-sm" (click)="openDialog()" >Update</a> -->
+                                                <button class="btn btn-success btn-sm"
+                                                    (click)="this.openTransportEmployeeeDetailsUpdateDialog(eachEmployee.transportEmpNicNo)">Update</button>
+                                                <a href="" class="ms-3 btn btn-danger btn-sm">Delete</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </ng-template>
                 </li>

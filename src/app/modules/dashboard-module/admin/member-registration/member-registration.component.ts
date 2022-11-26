@@ -34,6 +34,10 @@ export class MemberRegistrationComponent implements OnInit {
 	addTransportEmployeeDetailsForm!: FormGroup;
 	allMainBranchesList: any[] = [];
 	allAgentList: any[] = [];
+	allLablingEmployeeList: any[] = [];
+	allPackagingEmployeeList: any[] = [];
+	allShopDetailsList: any[] = [];
+	allTransportEmployeeList: any[] = [];
 	active = 1;
 
 	constructor(private formBuilder: FormBuilder, private registrationService: RegistrationServiceService
@@ -50,6 +54,42 @@ export class MemberRegistrationComponent implements OnInit {
 
 		this.getAllMainBranchList();
 		this.getAllAgentList();
+		this.getAllLablingEmployeeList();
+		this.getAllPackagingEmployeeList();
+		this.getAllShopdetailsList();
+		this.getAllTransportEmployeeList();
+	}
+
+	getAllTransportEmployeeList() {
+		this.registrationService.getAllTransportEmployeeList().subscribe((resp) => {
+			resp.forEach((el) => {
+				this.allTransportEmployeeList.push(el);
+			})
+		})
+	}
+
+	getAllShopdetailsList() {
+		this.registrationService.getAllShopdetailsList().subscribe((resp) => {
+			resp.forEach((el) => {
+				this.allShopDetailsList.push(el);
+			})
+		})
+	}
+
+	getAllPackagingEmployeeList() {
+		this.registrationService.getAllPackagingEmployeeList().subscribe((resp) => {
+			resp.forEach((el) => {
+				this.allPackagingEmployeeList.push(el);
+			})
+		})
+	}
+
+	getAllLablingEmployeeList() {
+		this.registrationService.getAllLablingEmployeeList().subscribe((resp) => {
+			resp.forEach((el) => {
+				this.allLablingEmployeeList.push(el);
+			})
+		})
 	}
 
 	getAllAgentList() {
@@ -68,23 +108,99 @@ export class MemberRegistrationComponent implements OnInit {
 		});
 	}
 
-	openMainBranchUpdateDialog() {
+	openMainBranchUpdateDialog(refNo: string) {
 		this.dialog.open(UpdateEntityComponent, {
 			data: {
+				refNo: refNo,
 				isMainBranch: true,
 				isAgent: false,
+				isLableEmployee: false,
+				isPackagingEmployee: false,
+				isLine: false,
+				isTransportEmployee: false
 			},
-			width: '600px'
+			width: '600px',
+			backdropClass: 'backdropBackground'
 		});
 	}
 
-	openAgenthUpdateDialog() {
+	openAgenthUpdateDialog(refNo: string) {
 		this.dialog.open(UpdateEntityComponent, {
 			data: {
+				refNo: refNo,
 				isMainBranch: false,
 				isAgent: true,
+				isLableEmployee: false,
+				isPackagingEmployee: false,
+				isLine: false,
+				isTransportEmployee: false
 			},
-			width: '600px'
+			width: '600px',
+			backdropClass: 'backdropBackground'
+		});
+	}
+
+	openLablingEmployeeUpdateDialog(refNo: string) {
+		this.dialog.open(UpdateEntityComponent, {
+			data: {
+				refNo: refNo,
+				isMainBranch: false,
+				isAgent: false,
+				isLableEmployee: true,
+				isPackagingEmployee: false,
+				isLine: false,
+				isTransportEmployee: false
+			},
+			width: '600px',
+			backdropClass: 'backdropBackground'
+		});
+	}
+
+	openPackagingEmployeeUpdateDialog(refNo: string) {
+		this.dialog.open(UpdateEntityComponent, {
+			data: {
+				refNo: refNo,
+				isMainBranch: false,
+				isAgent: false,
+				isLableEmployee: false,
+				isPackagingEmployee: true,
+				isLine: false,
+				isTransportEmployee: false
+			},
+			width: '600px',
+			backdropClass: 'backdropBackground'
+		});
+	}
+
+	openLineDetailsUpdateDialog(refNo: string) {
+		this.dialog.open(UpdateEntityComponent, {
+			data: {
+				refNo: refNo,
+				isMainBranch: false,
+				isAgent: false,
+				isLableEmployee: false,
+				isPackagingEmployee: false,
+				isLine: true,
+				isTransportEmployee: false
+			},
+			width: '600px',
+			backdropClass: 'backdropBackground'
+		});
+	}
+
+	openTransportEmployeeeDetailsUpdateDialog(refNo: string) {
+		this.dialog.open(UpdateEntityComponent, {
+			data: {
+				refNo: refNo,
+				isMainBranch: false,
+				isAgent: false,
+				isLableEmployee: false,
+				isPackagingEmployee: false,
+				isLine: false,
+				isTransportEmployee: true
+			},
+			width: '600px',
+			backdropClass: 'backdropBackground'
 		});
 	}
 
@@ -107,6 +223,7 @@ export class MemberRegistrationComponent implements OnInit {
 
 		this.registrationService.addNewPackagingEmployee(this.packagingEmployee).subscribe((resp) => {
 			this.notify.success("New Packaging Employee Added Successfully.");
+			this.getAllPackagingEmployeeList();
 		},
 			(err) => {
 				if (err.status === 401) {
@@ -136,6 +253,7 @@ export class MemberRegistrationComponent implements OnInit {
 
 		this.registrationService.addNewShopDetails(this.shopDetails).subscribe((resp) => {
 			this.notify.success("New Shop Added Successfully.");
+			this.getAllShopdetailsList();
 		},
 			(err) => {
 				if (err.status === 401) {
@@ -163,6 +281,7 @@ export class MemberRegistrationComponent implements OnInit {
 		
 		this.registrationService.addNewTransportEmployee(this.transportEmployee).subscribe((resp) => {
 			this.notify.success("New Transport Employee Added Successfully.");
+			this.getAllTransportEmployeeList();
 		},
 			(err) => {
 				if (err.status === 401) {
@@ -212,6 +331,7 @@ export class MemberRegistrationComponent implements OnInit {
 
 		this.registrationService.addNewLabelEmployee(this.labelEmployee).subscribe((resp) => {
 			this.notify.success("New Label Employee Added Successfully.");
+			this.getAllLablingEmployeeList();
 		},
 			(err) => {
 				if (err.status === 401) {
