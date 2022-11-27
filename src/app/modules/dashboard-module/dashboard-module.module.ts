@@ -13,6 +13,7 @@ import { SalaryMenegemntComponent } from './admin/salary-menegemnt/salary-menege
 import { ReportsComponent } from './admin/reports/reports.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { UpdateEntityComponent } from './dialogs/update-entity/update-entity.component';
+import { FilterPipe } from 'src/app/pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { UpdateEntityComponent } from './dialogs/update-entity/update-entity.com
     SalaryMenegemntComponent,
     ReportsComponent,
     UpdateEntityComponent,
+    FilterPipe
   ],
   imports: [
     CommonModule,

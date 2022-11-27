@@ -38,6 +38,8 @@ export class MemberRegistrationComponent implements OnInit {
 	allPackagingEmployeeList: any[] = [];
 	allShopDetailsList: any[] = [];
 	allTransportEmployeeList: any[] = [];
+	searchText: string = '';
+	type: string = '';
 	active = 1;
 
 	constructor(private formBuilder: FormBuilder, private registrationService: RegistrationServiceService
@@ -120,7 +122,7 @@ export class MemberRegistrationComponent implements OnInit {
 				isTransportEmployee: false
 			},
 			width: '600px',
-			backdropClass: 'backdropBackground'
+			backdropClass: 'backdropBackground',
 		});
 	}
 

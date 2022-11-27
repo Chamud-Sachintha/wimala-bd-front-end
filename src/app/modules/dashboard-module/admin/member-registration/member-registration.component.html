@@ -52,9 +52,17 @@
                         <div class="row">
                             <hr>
                             <div class="col-12">
-                                <h5>Manage Branches</h5>
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-12 col-lg-6">
+                                        <h5>Manage Branches</h5>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12 col-lg-6">
+                                        <input type="hidden" [(ngModel)]="this.type" value="mainBranch">
+                                        <input type="text" placeholder="Search Text" class="form-control" [(ngModel)]="searchText">
+                                    </div>
+                                </div>
 
-                                <table class="table table-striped">
+                                <table class="table table-striped mt-3">
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>
@@ -65,7 +73,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr *ngFor="let eachBranch of this.allMainBranchesList">
+                                        <tr *ngFor="let eachBranch of this.allMainBranchesList | filter : searchText : 'MB'">
                                             <td>{{ eachBranch.branchRefNo }}</td>
                                             <td>{{ eachBranch.branchEmployeeName }}</td>
                                             <td>{{ eachBranch.branchEmployeeNicNumber }}</td>
@@ -129,9 +137,16 @@
                         <div class="row">
                             <hr>
                             <div class="col-12">
-                                <h5>All Agents</h5>
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-12 col-lg-6">
+                                        <h5>Manage Agents</h5>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12 col-lg-6">
+                                        <input type="text" placeholder="Search Text" class="form-control" [(ngModel)]="searchText">
+                                    </div>
+                                </div>
 
-                                <table class="table table-striped">
+                                <table class="table table-striped mt-3">
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>
@@ -142,7 +157,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr *ngFor="let eachAgent of this.allAgentList">
+                                        <tr *ngFor="let eachAgent of this.allAgentList | filter : searchText : 'A'">
                                             <td>{{ eachAgent.agentRefNo }}</td>
                                             <td>{{ eachAgent.agentname }}</td>
                                             <td>{{ eachAgent.agentNicNumber }}</td>

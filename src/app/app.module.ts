@@ -19,7 +19,7 @@ import { AuthInterceptorInterceptor } from './interceptors/auth-interceptor.inte
     AppComponent,
     DashboardLayoutComponent,
     AuthLayoutayComponent,
-    AdminHeaderComponent
+    AdminHeaderComponent,
   ],
   imports: [
     BrowserModule,
