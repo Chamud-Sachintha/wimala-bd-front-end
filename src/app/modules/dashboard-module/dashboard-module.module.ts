@@ -14,6 +14,7 @@ import { ReportsComponent } from './admin/reports/reports.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { UpdateEntityComponent } from './dialogs/update-entity/update-entity.component';
 import { FilterPipe } from 'src/app/pipes/filter.pipe';
+import { CreateStockComponent } from './admin/create-stock/create-stock.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FilterPipe } from 'src/app/pipes/filter.pipe';
     SalaryMenegemntComponent,
     ReportsComponent,
     UpdateEntityComponent,
-    FilterPipe
+    FilterPipe,
+    CreateStockComponent
   ],
   imports: [
     CommonModule,
