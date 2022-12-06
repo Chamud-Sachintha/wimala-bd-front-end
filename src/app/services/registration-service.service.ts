@@ -16,8 +16,8 @@ export class RegistrationServiceService {
   constructor(private http: HttpClient) { }
 
   addNewBranchDetails(newBranchDetails: MainBranch) {
-    const path = "https://wimala-bd-platform-production.up.railway.app/reg/addNewBranch";
-    // const path = "http://localhost:8080/reg/addNewBranch";
+    // const path = "https://wimala-bd-platform-production.up.railway.app/reg/addNewBranch";
+    const path = "http://localhost:8080/reg/addNewBranch";
     return this.http.post(path, newBranchDetails);
   }
 
@@ -47,8 +47,8 @@ export class RegistrationServiceService {
   }
 
   getAllMainBranches():Observable<any[]> {
-    const path = "https://wimala-bd-platform-production.up.railway.app/get/allMainBranhesList";
-    // const path = "http://localhost:8080/get/allMainBranhesList";
+    // const path = "https://wimala-bd-platform-production.up.railway.app/get/allMainBranhesList";
+    const path = "http://localhost:8080/get/allMainBranhesList";
     return this.http.get<any[]>(path);
   }
 

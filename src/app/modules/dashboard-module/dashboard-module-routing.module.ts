@@ -7,6 +7,7 @@ import { MemberRegistrationComponent } from './admin/member-registration/member-
 import { ProductionManagementComponent } from './admin/production-management/production-management.component';
 import { ReportsComponent } from './admin/reports/reports.component';
 import { SalaryMenegemntComponent } from './admin/salary-menegemnt/salary-menegemnt.component';
+import { StockManagementComponent } from './admin/stock-management/stock-management.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
       {
         path: 'admin/stock-management',
         component: CreateStockComponent
+      },
+      {
+        path: 'admin/stock/manage/:id',
+        component: StockManagementComponent
       },
       {
         path: 'admin/production-management',

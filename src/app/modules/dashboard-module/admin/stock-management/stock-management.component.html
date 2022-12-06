@@ -1,5 +1,12 @@
 <div id="content" class="p-4 p-md-5 pt-5">
-    <h2 class="mb-4">Stock Management</h2>
+    <div class="row">
+        <div class="col-md-6 col-lg-6 col-sm-12">
+            <h2 class="mb-4">Stock Management</h2>
+        </div>
+        <div class="col-md-6 col-lg-6 col-sm-12">
+            <button class="btn btn-success btn-sm" style="float: right" (click)="onClickBackToStockPage()">Back to Stock</button>
+        </div>
+    </div>
 
     <div class="row">
         <div class="col-12">
@@ -48,45 +55,7 @@
                             <hr>
                             <div class="col-12">
                                 <h5>Manage Branches</h5>
-                                <form>
-                                    <div class="mb-3 row">
-                                        <label for="table-filtering-search" class="col-xs-3 col-sm-auto col-form-label">Search Branch By Anything:</label>
-                                        <div class="col-xs-3 col-sm-auto">
-                                            <input id="table-filtering-search" class="form-control" type="text" [formControl]="filter" />
-                                        </div>
-                                    </div>
-                                </form>
-                                
-                                <table class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">Country</th>
-                                            <th scope="col">Area</th>
-                                            <th scope="col">Population</th>
-                                            <th scope="col">Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr *ngFor="let country of countries$ | async; index as i">
-                                            <th scope="row">{{ i + 1 }}</th>
-                                            <td>
-                                                <img
-                                                    [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag"
-                                                    class="me-2"
-                                                    style="width: 20px"
-                                                />
-                                                <ngb-highlight [result]="country.name" [term]="filter.value"></ngb-highlight>
-                                            </td>
-                                            <td><ngb-highlight [result]="country.area | number" [term]="filter.value"></ngb-highlight></td>
-                                            <td><ngb-highlight [result]="country.population | number" [term]="filter.value"></ngb-highlight></td>
-                                            <td>
-                                                <a href="" class="btn btn-success btn-sm">Update</a>
-                                                <a href="" class="ms-3 btn btn-danger btn-sm">delete</a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            
                             </div>
                         </div>
                     </ng-template>
@@ -134,45 +103,8 @@
                             <hr>
                             <div class="col-12">
                                 <h5>Manage Branches</h5>
-                                <form>
-                                    <div class="mb-3 row">
-                                        <label for="table-filtering-search" class="col-xs-3 col-sm-auto col-form-label">Search Branch By Anything:</label>
-                                        <div class="col-xs-3 col-sm-auto">
-                                            <input id="table-filtering-search" class="form-control" type="text" [formControl]="filter" />
-                                        </div>
-                                    </div>
-                                </form>
                                 
-                                <table class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">Country</th>
-                                            <th scope="col">Area</th>
-                                            <th scope="col">Population</th>
-                                            <th scope="col">Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr *ngFor="let country of countries$ | async; index as i">
-                                            <th scope="row">{{ i + 1 }}</th>
-                                            <td>
-                                                <img
-                                                    [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag"
-                                                    class="me-2"
-                                                    style="width: 20px"
-                                                />
-                                                <ngb-highlight [result]="country.name" [term]="filter.value"></ngb-highlight>
-                                            </td>
-                                            <td><ngb-highlight [result]="country.area | number" [term]="filter.value"></ngb-highlight></td>
-                                            <td><ngb-highlight [result]="country.population | number" [term]="filter.value"></ngb-highlight></td>
-                                            <td>
-                                                <a href="" class="btn btn-success btn-sm">Update</a>
-                                                <a href="" class="ms-3 btn btn-danger btn-sm">delete</a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                
                             </div>
                         </div>
                     </ng-template>
@@ -220,45 +152,7 @@
                             <hr>
                             <div class="col-12">
                                 <h5>Manage Branches</h5>
-                                <form>
-                                    <div class="mb-3 row">
-                                        <label for="table-filtering-search" class="col-xs-3 col-sm-auto col-form-label">Search Branch By Anything:</label>
-                                        <div class="col-xs-3 col-sm-auto">
-                                            <input id="table-filtering-search" class="form-control" type="text" [formControl]="filter" />
-                                        </div>
-                                    </div>
-                                </form>
                                 
-                                <table class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">Country</th>
-                                            <th scope="col">Area</th>
-                                            <th scope="col">Population</th>
-                                            <th scope="col">Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr *ngFor="let country of countries$ | async; index as i">
-                                            <th scope="row">{{ i + 1 }}</th>
-                                            <td>
-                                                <img
-                                                    [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag"
-                                                    class="me-2"
-                                                    style="width: 20px"
-                                                />
-                                                <ngb-highlight [result]="country.name" [term]="filter.value"></ngb-highlight>
-                                            </td>
-                                            <td><ngb-highlight [result]="country.area | number" [term]="filter.value"></ngb-highlight></td>
-                                            <td><ngb-highlight [result]="country.population | number" [term]="filter.value"></ngb-highlight></td>
-                                            <td>
-                                                <a href="" class="btn btn-success btn-sm">Update</a>
-                                                <a href="" class="ms-3 btn btn-danger btn-sm">delete</a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
                             </div>
                         </div>
                     </ng-template>
@@ -312,45 +206,7 @@
                             <hr>
                             <div class="col-12">
                                 <h5>Manage Branches</h5>
-                                <form>
-                                    <div class="mb-3 row">
-                                        <label for="table-filtering-search" class="col-xs-3 col-sm-auto col-form-label">Search Branch By Anything:</label>
-                                        <div class="col-xs-3 col-sm-auto">
-                                            <input id="table-filtering-search" class="form-control" type="text" [formControl]="filter" />
-                                        </div>
-                                    </div>
-                                </form>
                                 
-                                <table class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">Country</th>
-                                            <th scope="col">Area</th>
-                                            <th scope="col">Population</th>
-                                            <th scope="col">Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr *ngFor="let country of countries$ | async; index as i">
-                                            <th scope="row">{{ i + 1 }}</th>
-                                            <td>
-                                                <img
-                                                    [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag"
-                                                    class="me-2"
-                                                    style="width: 20px"
-                                                />
-                                                <ngb-highlight [result]="country.name" [term]="filter.value"></ngb-highlight>
-                                            </td>
-                                            <td><ngb-highlight [result]="country.area | number" [term]="filter.value"></ngb-highlight></td>
-                                            <td><ngb-highlight [result]="country.population | number" [term]="filter.value"></ngb-highlight></td>
-                                            <td>
-                                                <a href="" class="btn btn-success btn-sm">Update</a>
-                                                <a href="" class="ms-3 btn btn-danger btn-sm">delete</a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
                             </div>
                         </div>
                     </ng-template>
@@ -398,45 +254,7 @@
                             <hr>
                             <div class="col-12">
                                 <h5>Manage Branches</h5>
-                                <form>
-                                    <div class="mb-3 row">
-                                        <label for="table-filtering-search" class="col-xs-3 col-sm-auto col-form-label">Search Branch By Anything:</label>
-                                        <div class="col-xs-3 col-sm-auto">
-                                            <input id="table-filtering-search" class="form-control" type="text" [formControl]="filter" />
-                                        </div>
-                                    </div>
-                                </form>
-                                
-                                <table class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">Country</th>
-                                            <th scope="col">Area</th>
-                                            <th scope="col">Population</th>
-                                            <th scope="col">Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr *ngFor="let country of countries$ | async; index as i">
-                                            <th scope="row">{{ i + 1 }}</th>
-                                            <td>
-                                                <img
-                                                    [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag"
-                                                    class="me-2"
-                                                    style="width: 20px"
-                                                />
-                                                <ngb-highlight [result]="country.name" [term]="filter.value"></ngb-highlight>
-                                            </td>
-                                            <td><ngb-highlight [result]="country.area | number" [term]="filter.value"></ngb-highlight></td>
-                                            <td><ngb-highlight [result]="country.population | number" [term]="filter.value"></ngb-highlight></td>
-                                            <td>
-                                                <a href="" class="btn btn-success btn-sm">Update</a>
-                                                <a href="" class="ms-3 btn btn-danger btn-sm">delete</a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                               
                             </div>
                         </div>
                     </ng-template>

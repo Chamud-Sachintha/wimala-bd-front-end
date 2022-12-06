@@ -15,6 +15,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { UpdateEntityComponent } from './dialogs/update-entity/update-entity.component';
 import { FilterPipe } from 'src/app/pipes/filter.pipe';
 import { CreateStockComponent } from './admin/create-stock/create-stock.component';
+import { CreateStockDialogComponent } from './dialogs/create-stock-dialog/create-stock-dialog.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CreateStockComponent } from './admin/create-stock/create-stock.componen
     ReportsComponent,
     UpdateEntityComponent,
     FilterPipe,
-    CreateStockComponent
+    CreateStockComponent,
+    CreateStockDialogComponent
   ],
   imports: [
     CommonModule,

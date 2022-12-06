@@ -4,8 +4,43 @@
             <h2 class="mb-4">Stock Management</h2>
         </div>
         <div class="col-md-6 col-lg-6 col-sm-12">
-            <button class="btn btn-success btn-sm" style="float: right">Create New Stock</button>
+            <button class="btn btn-success btn-sm" style="float: right" (click)="openCreateStockDialog()">Create New Stock</button>
         </div>
     </div>
     <hr>
+
+    <div class="row">
+        <h5>Available Stocks</h5>
+        <div class="col-12">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Stock Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Created Date</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let eachStock of this.allAvailableStockDetails">
+                        <th scope="row">{{ eachStock.stockId }}</th>
+                        <td>{{ eachStock.stockName }}</td>
+                        <td>{{ eachStock.description }}</td>
+                        <td>{{ eachStock.createdDate | date }}</td>
+                        <td>
+                            <div class="row">
+                                <div class="col-md-5 col-lg-5 col-sm-12">
+                                    <button class="btn btn-primary btn-sm" (click)="onClickManageStock(eachStock.stockId)">Manage Stock</button>
+                                </div>
+                                <div class="col-md-7 col-lg-7 col-sm-12">
+                                    <button class="btn btn-danger btn-sm">Delete Stock</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
