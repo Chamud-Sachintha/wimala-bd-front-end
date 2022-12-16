@@ -62,6 +62,84 @@ export class MemberRegistrationComponent implements OnInit {
 		this.getAllTransportEmployeeList();
 	}
 
+	onClickDeleteBranch(branchId: string) {
+		const confirm = window.confirm("Do you Want to Delete This Branch ? ");
+
+		if (confirm) {
+			this.registrationService.deleteSelectedBranchDetails(branchId).subscribe((data) => {
+				location.reload()
+				this.notify.success("Delete Successfully.");
+			},(err) => {
+				this.notify.error("There is an Error Occur" + err);
+			})
+		}
+	}
+
+	onClickDeleteAgentByRefNo(refNo: string) {
+		const confirm = window.confirm("Do you want to Delete This Agent ? ")
+
+		if (confirm) {
+			this.registrationService.deleteAgentByRefNo(refNo).subscribe((data) => {
+				location.reload()
+				this.notify.success("Delete Successfully.");
+			},(err) => {
+				this.notify.error("There is an Error Occur" + err);
+			})
+		}
+	}
+
+	onClickDeleteLablingEmployeeByRefNo(refNo: string) {
+		const confirm = window.confirm("Do you want to Delete This Employee ? ")
+
+		if (confirm) {
+			this.registrationService.deleteLablingByRegNo(refNo).subscribe((data) => {
+				location.reload()
+				this.notify.success("Delete Successfully.");
+			},(err) => {
+				this.notify.error("There is an Error Occur" + err);
+			})
+		}
+	}
+
+	onClickDeletePackagingEmployeeByRefNo(refNo: string) {
+		const confirm = window.confirm("Do you want to Delete This Employee ? ")
+
+		if (confirm) {
+			this.registrationService.deletePackagingEmployeeByRefNo(refNo).subscribe((data) => {
+				location.reload()
+				this.notify.success("Delete Successfully.");
+			},(err) => {
+				this.notify.error("There is an Error Occur" + err);
+			})
+		}
+	}
+
+	onClickDeleteLineByRefNo(refNo: string) {
+		const confirm = window.confirm("Do you want to Delete This Shop ?")
+
+		if (confirm) {
+			this.registrationService.deleteShopByRefNo(refNo).subscribe((data) => {
+				location.reload()
+				this.notify.success("Delete Successfully.");
+			},(err) => {
+				this.notify.error("There is an Error Occur" + err);
+			})
+		}
+	}
+
+	onClickDeleteTransportEmployeeByRefNo(refNo: string) {
+		const confirm = window.confirm("Do you want to Delete This Employee ? ")
+
+		if (confirm) {
+			this.registrationService.deleteTransportEmployeeByrefNo(refNo).subscribe((data) => {
+				location.reload()
+				this.notify.success("Delete Successfully.");
+			},(err) => {
+				this.notify.error("There is an Error Occur" + err);
+			})
+		}
+	}
+
 	getAllTransportEmployeeList() {
 		this.registrationService.getAllTransportEmployeeList().subscribe((resp) => {
 			resp.forEach((el) => {
@@ -123,6 +201,8 @@ export class MemberRegistrationComponent implements OnInit {
 			},
 			width: '600px',
 			backdropClass: 'backdropBackground',
+		}).afterClosed().subscribe((data) => {
+			location.reload();
 		});
 	}
 
@@ -139,6 +219,8 @@ export class MemberRegistrationComponent implements OnInit {
 			},
 			width: '600px',
 			backdropClass: 'backdropBackground'
+		}).afterClosed().subscribe((data) => {
+			location.reload();
 		});
 	}
 
@@ -155,6 +237,8 @@ export class MemberRegistrationComponent implements OnInit {
 			},
 			width: '600px',
 			backdropClass: 'backdropBackground'
+		}).afterClosed().subscribe((data) => {
+			location.reload();
 		});
 	}
 
@@ -171,6 +255,8 @@ export class MemberRegistrationComponent implements OnInit {
 			},
 			width: '600px',
 			backdropClass: 'backdropBackground'
+		}).afterClosed().subscribe((data) => {
+			location.reload();
 		});
 	}
 
@@ -187,6 +273,8 @@ export class MemberRegistrationComponent implements OnInit {
 			},
 			width: '600px',
 			backdropClass: 'backdropBackground'
+		}).afterClosed().subscribe((data) => {
+			location.reload();
 		});
 	}
 
@@ -203,6 +291,8 @@ export class MemberRegistrationComponent implements OnInit {
 			},
 			width: '600px',
 			backdropClass: 'backdropBackground'
+		}).afterClosed().subscribe((data) => {
+			location.reload();
 		});
 	}
 
@@ -224,8 +314,8 @@ export class MemberRegistrationComponent implements OnInit {
 		this.packagingEmployee.packagingEmpContactNo = this.addPackagingEmployeeForm.controls['packagingEmpContactNo'].value;
 
 		this.registrationService.addNewPackagingEmployee(this.packagingEmployee).subscribe((resp) => {
+			location.reload();
 			this.notify.success("New Packaging Employee Added Successfully.");
-			this.getAllPackagingEmployeeList();
 		},
 			(err) => {
 				if (err.status === 401) {
@@ -254,8 +344,8 @@ export class MemberRegistrationComponent implements OnInit {
 		this.shopDetails.shopMobileNo = this.addShopDetailsForm.controls['shopMobileNo'].value;
 
 		this.registrationService.addNewShopDetails(this.shopDetails).subscribe((resp) => {
+			location.reload();
 			this.notify.success("New Shop Added Successfully.");
-			this.getAllShopdetailsList();
 		},
 			(err) => {
 				if (err.status === 401) {
@@ -282,8 +372,8 @@ export class MemberRegistrationComponent implements OnInit {
 		this.transportEmployee.transportEmpMobile = this.addTransportEmployeeDetailsForm.controls['transportEmpMobile'].value;
 		
 		this.registrationService.addNewTransportEmployee(this.transportEmployee).subscribe((resp) => {
+			location.reload();
 			this.notify.success("New Transport Employee Added Successfully.");
-			this.getAllTransportEmployeeList();
 		},
 			(err) => {
 				if (err.status === 401) {
@@ -332,8 +422,8 @@ export class MemberRegistrationComponent implements OnInit {
 		this.labelEmployee.labelEmpRefNo = this.addLablingEmployeeForm.controls['labelEmpRefNo'].value;
 
 		this.registrationService.addNewLabelEmployee(this.labelEmployee).subscribe((resp) => {
+			location.reload();
 			this.notify.success("New Label Employee Added Successfully.");
-			this.getAllLablingEmployeeList();
 		},
 			(err) => {
 				if (err.status === 401) {
@@ -353,6 +443,7 @@ export class MemberRegistrationComponent implements OnInit {
 		this.agentDetails.agentLocation = this.addAgentDetailsForm.controls['agentLocation'].value;
 
 		this.registrationService.addNewAgentDetails(this.agentDetails).subscribe((resp) => {
+			location.reload();
 			this.notify.success("New Agent Added Successfully.");
 		},
 			(err) => {
@@ -373,6 +464,7 @@ export class MemberRegistrationComponent implements OnInit {
 		this.mainBranchDetails.branchRefNo = this.addNewMainBranchForm.controls['employeeRefNo'].value;
 
 		this.registrationService.addNewBranchDetails(this.mainBranchDetails).subscribe((resp) => {
+			location.reload();
 			this.notify.success("Main Branch Added Successfully.");
 		},
 			(err) => {

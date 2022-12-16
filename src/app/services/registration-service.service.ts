@@ -76,4 +76,34 @@ export class RegistrationServiceService {
     const path = "http://localhost:8080/get/allTransportEmployees";
     return this.http.get<any[]>(path);
   }
+
+  deleteSelectedBranchDetails(branchId: string) {
+    const path = "http://localhost:8080/delete/mainBranch?" + "refNo=" + branchId;
+    return this.http.delete(path);
+  }
+
+  deleteAgentByRefNo(agentRefNo: string) {
+    const path = "http://localhost:8080/delete/agentDetails?" + "refNo=" + agentRefNo;
+    return this.http.delete(path);
+  }
+
+  deleteLablingByRegNo(refNo: string) {
+    const path = "http://localhost:8080/delete/lablingEmployee?" + "refNo=" + refNo;
+    return this.http.delete(path);
+  }
+
+  deletePackagingEmployeeByRefNo(refNo: string) {
+    const path = "http://localhost:8080/delete/packagingEmployee?" + "refNo=" + refNo;
+    return this.http.delete(path);
+  }
+
+  deleteShopByRefNo(refNo: string) {
+    const path = "http://localhost:8080/delete/shop?" + "refNo=" + refNo;
+    return this.http.delete(path);
+  }
+
+  deleteTransportEmployeeByrefNo(refNo: string) {
+    const path = "http://localhost:8080/delete/transportEmployee?" + "refNo=" + refNo;
+    return this.http.delete(path);
+  }
 }

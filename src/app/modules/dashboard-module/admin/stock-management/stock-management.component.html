@@ -9,31 +9,90 @@
     </div>
 
     <div class="row">
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="text-center">Wrapping Leaves</h4>
+                    <div class="text-center">
+                        <span style="font-size: xx-large;">{{ this.wrappingLeavesQuantity }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="text-center">Tobacco Leaves</h4>
+                    <div class="text-center">
+                        <span style="font-size: xx-large;">{{ this.tobaccoLeavesQuantity }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="text-center">Nilon</h4>
+                    <div class="text-center">
+                        <span style="font-size: xx-large;">{{ this.nilonDetailsQuantity }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="text-center">Chemical</h4>
+                    <div class="text-center">
+                        <span style="font-size: xx-large;">{{ this.chemicalDetailsQuantity }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="text-center">Other</h4>
+                    <div class="text-center">
+                        <span style="font-size: xx-large;">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-3">
         <div class="col-12">
             <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
                 <li [ngbNavItem]="1">
                     <a ngbNavLink>Wraping Leaves</a>
                     <ng-template ngbNavContent>
                         <h5>Manage Wraping Leaves Stock</h5>
-                        <form action="" class="form-group">
+                        <form action="" [formGroup]="this.addWrappingLeavesForm" class="form-group" (ngSubmit)="onClickAddWrappingLeavesForStock()">
                             <div class="row">
                                 <div class="col-6">
                                     <label for="branchName">Leave Type :</label>
-                                    <input type="text" class="form-control" placeholder="Enter Wraping Leave Type">
+                                    <input type="text" class="form-control" placeholder="Enter Wraping Leave Type" formControlName="leaveType">
                                 </div>
                                 <div class="col-6">
                                     <label for="branchName">Added Date :</label>
-                                    <input type="date" class="form-control" placeholder="Enter Branch Address">
+                                    <input type="date" class="form-control" placeholder="Enter Branch Address" formControlName="createdDate">
                                 </div>
                             </div>
                             <div class="row mt-3">
                                 <div class="col-6">
                                     <label for="branchName">Set Quantity :</label>
-                                    <input type="text" class="form-control" placeholder="Enter Quantity">
+                                    <input type="text" class="form-control" placeholder="Enter Quantity" formControlName="quantity">
                                 </div>
                                 <div class="col-6">
                                     <label for="branchName">Unit Price (Price of 1kg) :</label>
-                                    <input type="text" class="form-control" placeholder="Enter Unit Price">
+                                    <input type="text" class="form-control" placeholder="Enter Unit Price" formControlName="unitPrice">
                                 </div>
                             </div>
 
@@ -54,9 +113,43 @@
                         <div class="row">
                             <hr>
                             <div class="col-12">
-                                <h5>Manage Branches</h5>
-                            
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-12 col-lg-6">
+                                        <h5>Manage Wrapping Leaves</h5>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12 col-lg-6">
+                                        <input type="text" placeholder="Search Text" class="form-control">
+                                    </div>
+                                </div>
                             </div>
+
+                            <table class="table table-striped mt-3">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Leave Type</th>
+                                        <th scope="col">Quantity</th>
+                                        <th scope="col">Unit Price</th>
+                                        <th scope="col">Created Date</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let eachWrappingLeave of this.allWrappingLeavesList">
+                                        <td>{{ eachWrappingLeave.id }}</td>
+                                        <td>{{ eachWrappingLeave.leaveType }}</td>
+                                        <td>{{ eachWrappingLeave.quantity }}</td>
+                                        <td>{{ eachWrappingLeave.unitPrice }}</td>
+                                        <td>{{ eachWrappingLeave.createdDate }}</td>
+                                        <td>
+                                            <!-- <a href="" class="btn btn-success btn-sm" (click)="openDialog()" >Update</a> -->
+                                            <button class="btn btn-success btn-sm" (click)="openWrappingLeaveUpdateDialog(eachWrappingLeave.id)"
+                                                >Update</button>
+                                            <a href="" class="ms-3 btn btn-danger btn-sm">Delete</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </ng-template>
                 </li>
@@ -64,25 +157,25 @@
                     <a ngbNavLink>Tobaco Leaves</a>
                     <ng-template ngbNavContent>
                         <h5>Register New Agent & Manage</h5>
-                        <form action="" class="form-group">
+                        <form action="" class="form-group" [formGroup]="addTobaccoLeavesForm" (ngSubmit)="onSubmitAddTobaccoLeavesForm()">
                             <div class="row">
                                 <div class="col-6">
                                     <label for="">Tobaco Type :</label>
-                                    <input type="text" class="form-control" placeholder="Enter Agent Name">
+                                    <input type="text" class="form-control" placeholder="Enter Agent Name" formControlName="tobaccoType">
                                 </div>
                                 <div class="col-6">
                                     <label for="">Date :</label>
-                                    <input type="text" class="form-control" placeholder="Enter Agent NIC Number">
+                                    <input type="date" class="form-control" formControlName="date">
                                 </div>
                             </div>
                             <div class="row mt-3">
                                 <div class="col-6">
                                     <label for="">Price :</label>
-                                    <input type="text" class="form-control" placeholder="Enter Contact Number">
+                                    <input type="text" class="form-control" placeholder="Enter Unit Price" formControlName="price">
                                 </div>
                                 <div class="col-6">
                                     <label for="">Quantity :</label>
-                                    <input type="text" class="form-control" placeholder="Enter Email Address">
+                                    <input type="text" class="form-control" placeholder="Enter Email Address" formControlName="quantity">
                                 </div>
                             </div>
                             <div class="row mt-3">
@@ -102,9 +195,42 @@
                         <div class="row">
                             <hr>
                             <div class="col-12">
-                                <h5>Manage Branches</h5>
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-12 col-lg-6">
+                                        <h5>Manage Tobacco Leaves</h5>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12 col-lg-6">
+                                        <input type="text" placeholder="Search Text" class="form-control">
+                                    </div>
+                                </div>
                                 
-                                
+                                <table class="table table-striped mt-3">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Tobacco Type</th>
+                                            <th scope="col">Quantity</th>
+                                            <th scope="col">Unit Price</th>
+                                            <th scope="col">Created Date</th>
+                                            <th scope="col">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let eachTobacco of this.allTobaccoLeavesList">
+                                            <td>{{ eachTobacco.id }}</td>
+                                            <td>{{ eachTobacco.tobaccoType }}</td>
+                                            <td>{{ eachTobacco.quantity }}</td>
+                                            <td>{{ eachTobacco.price }}</td>
+                                            <td>{{ eachTobacco.date }}</td>
+                                            <td>
+                                                <!-- <a href="" class="btn btn-success btn-sm" (click)="openDialog()" >Update</a> -->
+                                                <button class="btn btn-success btn-sm" (click)="openTobaccoLeaveUpdateDialog(eachTobacco.id)"
+                                                    >Update</button>
+                                                <a href="" class="ms-3 btn btn-danger btn-sm">Delete</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </ng-template>
@@ -113,25 +239,25 @@
                     <a ngbNavLink>Nilon</a>
                     <ng-template ngbNavContent>
                         <h5>Register New Nilon Stock & Manage</h5>
-                        <form action="" class="form-group">
+                        <form action="" class="form-group" [formGroup]="addNilonDetailsForm" (ngSubmit)="onSubmitAddNilonDetailsForm()">
                             <div class="row">
                                 <div class="col-6">
                                     <label for="">Nilon Type :</label>
-                                    <input type="text" class="form-control" placeholder="Enter Agent Name">
+                                    <input type="text" class="form-control" placeholder="Enter Agent Name" formControlName="nilonType">
                                 </div>
                                 <div class="col-6">
                                     <label for="">Handed Over Date :</label>
-                                    <input type="text" class="form-control" placeholder="Enter Agent NIC Number">
+                                    <input type="date" class="form-control" formControlName="date">
                                 </div>
                             </div>
                             <div class="row mt-3">
                                 <div class="col-6">
                                     <label for="">Unit Price :</label>
-                                    <input type="text" class="form-control" placeholder="Enter Contact Number">
+                                    <input type="text" class="form-control" placeholder="Enter Contact Number" formControlName="price">
                                 </div>
                                 <div class="col-6">
                                     <label for="">Quantity :</label>
-                                    <input type="text" class="form-control" placeholder="Enter Email Address">
+                                    <input type="text" class="form-control" placeholder="Enter Email Address" formControlName="quantity">
                                 </div>
                             </div>
                             <div class="row mt-3">
@@ -151,8 +277,42 @@
                         <div class="row">
                             <hr>
                             <div class="col-12">
-                                <h5>Manage Branches</h5>
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-12 col-lg-6">
+                                        <h5>Manage Nilon Details</h5>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12 col-lg-6">
+                                        <input type="text" placeholder="Search Text" class="form-control">
+                                    </div>
+                                </div>
                                 
+                                <table class="table table-striped mt-3">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Nilon Type</th>
+                                            <th scope="col">Quantity</th>
+                                            <th scope="col">Unit Price</th>
+                                            <th scope="col">Created Date</th>
+                                            <th scope="col">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let eachNilon of this.allNilonDetailsList">
+                                            <td>{{ eachNilon.id }}</td>
+                                            <td>{{ eachNilon.nilonType }}</td>
+                                            <td>{{ eachNilon.quantity }}</td>
+                                            <td>{{ eachNilon.price }}</td>
+                                            <td>{{ eachNilon.date }}</td>
+                                            <td>
+                                                <!-- <a href="" class="btn btn-success btn-sm" (click)="openDialog()" >Update</a> -->
+                                                <button class="btn btn-success btn-sm" (click)="openNilonDetailsUpdateDialog(eachNilon.id)"
+                                                    >Update</button>
+                                                <a href="" class="ms-3 btn btn-danger btn-sm">Delete</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </ng-template>
@@ -161,31 +321,31 @@
                     <a ngbNavLink>Chemicals</a>
                     <ng-template ngbNavContent>
                         <h5>Register New Chemical & Manage</h5>
-                        <form action="" class="form-group">
+                        <form action="" class="form-group" [formGroup]="addChemicalDetailsForm" (ngSubmit)="onSubmitAddChemicalDetailsForm()">
                             <div class="row">
                                 <div class="col-6">
                                     <label for="">Chemical Name :</label>
-                                    <input type="text" class="form-control" placeholder="Enter Agent Name">
+                                    <input type="text" class="form-control" placeholder="Enter Agent Name" formControlName="chemicalName">
                                 </div>
                                 <div class="col-6">
                                     <label for="">Chemical Type :</label>
-                                    <input type="text" class="form-control" placeholder="Enter Agent NIC Number">
+                                    <input type="text" class="form-control" placeholder="Enter Agent NIC Number" formControlName="chemicalType">
                                 </div>
                             </div>
                             <div class="row mt-3">
                                 <div class="col-6">
                                     <label for="">Chemical Handed Over Date :</label>
-                                    <input type="text" class="form-control" placeholder="Enter Contact Number">
+                                    <input type="date" class="form-control" formControlName="date">
                                 </div>
                                 <div class="col-6">
                                     <label for="">Unit Price :</label>
-                                    <input type="text" class="form-control" placeholder="Enter Email Address">
+                                    <input type="text" class="form-control" placeholder="Enter Email Address" formControlName="price">
                                 </div>
                             </div>
                             <div class="row mt-3">
                                 <div class="col-6">
                                     <label for="">Quantity :</label>
-                                    <input type="text" class="form-control" placeholder="Enter Contact Number">
+                                    <input type="text" class="form-control" placeholder="Enter Contact Number" formControlName="quantity">
                                 </div>
                             </div>
                             <div class="row mt-3">
@@ -205,7 +365,44 @@
                         <div class="row">
                             <hr>
                             <div class="col-12">
-                                <h5>Manage Branches</h5>
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-12 col-lg-6">
+                                        <h5>Manage Chemical Details</h5>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12 col-lg-6">
+                                        <input type="text" placeholder="Search Text" class="form-control">
+                                    </div>
+                                </div>
+
+                                <table class="table table-striped mt-3">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Chemical Name</th>
+                                            <th scope="col">Chemical Type</th>
+                                            <th scope="col">Quantity</th>
+                                            <th scope="col">Unit Price</th>
+                                            <th scope="col">Created Date</th>
+                                            <th scope="col">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let eachChemical of this.allChemicalDetailsList">
+                                            <td>{{ eachChemical.id }}</td>
+                                            <td>{{ eachChemical.chemicalName }}</td>
+                                            <td>{{ eachChemical.chemicalType }}</td>
+                                            <td>{{ eachChemical.quantity }}</td>
+                                            <td>{{ eachChemical.price }}</td>
+                                            <td>{{ eachChemical.date }}</td>
+                                            <td>
+                                                <!-- <a href="" class="btn btn-success btn-sm" (click)="openDialog()" >Update</a> -->
+                                                <button class="btn btn-success btn-sm" (click)="openChemicalDetailsUpdateDialog(eachChemical.id)"
+                                                    >Update</button>
+                                                <a href="" class="ms-3 btn btn-danger btn-sm">Delete</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                                 
                             </div>
                         </div>

@@ -13,7 +13,7 @@ export class AuthServiceService {
   constructor(private http: HttpClient) { }
 
   authenticateUser(jwtRequest: JWTRequest):Observable<JWTResponse> {
-    // const path = "https://wimala-bd-platform-production.up.railway.app/authenticate";
+    //const path = "https://wimala-bd-platform-production.up.railway.app/authenticate";
     const path = "http://localhost:8080/authenticate";
     return this.http.post<JWTResponse>(path, jwtRequest);
   }

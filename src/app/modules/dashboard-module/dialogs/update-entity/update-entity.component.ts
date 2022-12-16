@@ -87,6 +87,7 @@ export class UpdateEntityComponent implements OnInit {
 		
 		this.manageEntity.updateTransportEmployeeByRefNo(this.refNo, this.transportEmployee).subscribe((resp) => {
 			this.notify.success("New Transport Employee Updated Successfully.");
+      this.dialogRef.close()
 		},
 			(err) => {
 				if (err.status === 401) {
@@ -130,6 +131,7 @@ export class UpdateEntityComponent implements OnInit {
 
 		this.manageEntity.updateShopdetailsById(this.refNo, this.lineDetails).subscribe((resp) => {
 			this.notify.success("New Shop Updated Successfully.");
+      this.dialogRef.close()
 		},
 			(err) => {
 				if (err.status === 401) {
@@ -177,6 +179,7 @@ export class UpdateEntityComponent implements OnInit {
 
 		this.manageEntity.updatePackagingEmployeeDetailsById(this.refNo, this.packagingEmployee).subscribe((resp) => {
 			this.notify.success("New Packaging Employee Updated Successfully.");
+      this.dialogRef.close()
 		},
 			(err) => {
 				if (err.status === 401) {
@@ -208,6 +211,7 @@ export class UpdateEntityComponent implements OnInit {
 
 		this.manageEntity.updateLablingEmployeedetailsById(this.refNo, this.labelEmployee).subscribe((resp) => {
 			this.notify.success("New Label Employee Updated Successfully.");
+      this.dialogRef.close()
 		},
 			(err) => {
 				if (err.status === 401) {
@@ -228,6 +232,7 @@ export class UpdateEntityComponent implements OnInit {
 
 		this.manageEntity.updateAgentDetailsById(this.refNo, this.agentDetails).subscribe((resp) => {
 			this.notify.success("New Agent Updated Successfully.");
+      this.dialogRef.close()
 		},
 			(err) => {
 				if (err.status === 401) {
@@ -287,7 +292,7 @@ export class UpdateEntityComponent implements OnInit {
 
     this.manageEntity.updateMainBranchDetails(this.refNo, this.mainBranch).subscribe((resp) => {
       this.notify.success("Main Branch Updated Successfully.");
-      this.getMainBranchDetailByRefNo();
+      this.dialogRef.close()
     },
       (err) => {
         if (err.status === 401) {

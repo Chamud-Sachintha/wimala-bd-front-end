@@ -16,6 +16,7 @@ import { UpdateEntityComponent } from './dialogs/update-entity/update-entity.com
 import { FilterPipe } from 'src/app/pipes/filter.pipe';
 import { CreateStockComponent } from './admin/create-stock/create-stock.component';
 import { CreateStockDialogComponent } from './dialogs/create-stock-dialog/create-stock-dialog.component';
+import { UpdateStockItemComponent } from './dialogs/update-stock-item/update-stock-item.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { CreateStockDialogComponent } from './dialogs/create-stock-dialog/create
     UpdateEntityComponent,
     FilterPipe,
     CreateStockComponent,
-    CreateStockDialogComponent
+    CreateStockDialogComponent,
+    UpdateStockItemComponent
   ],
   imports: [
     CommonModule,

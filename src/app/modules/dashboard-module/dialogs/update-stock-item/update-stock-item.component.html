@@ -1,0 +1,158 @@
+<div class="row" *ngIf="this.mydata.isWrappingLeave">
+    <div class="card-body">
+        <h1 class="card-title">Update Wrapping Leave Details</h1>
+        <hr>
+        <form action="" [formGroup]="updateWrappingLeavesForm" class="form-group" (ngSubmit)="onSubmitUpdateWrappingLeavesForm()">
+            <div class="row">
+                <div class="col-md-6 col-lg-6 col-sm-12">
+                    <label for="">Leave Type:</label>
+                    <input type="text" class="form-control" formControlName="leaveType">
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-12">
+                    <label for="">Quantity:</label>
+                    <input type="text" class="form-control" formControlName="quantity">
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 col-lg-6 col-sm-12">
+                    <label for="">Unit Price:</label>
+                    <input type="text" class="form-control" formControlName="unitPrice">
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-12">
+                    <label for="">Date:</label>
+                    <input type="date" class="form-control" formControlName="createdDate">
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="col-10">
+                    <button class="btn btn-primary btn-sm" style="float: right;">Update</button>
+                </div>
+                <div class="col-2">
+                    <button class="btn btn-secondary btn-sm" style="float: right;">Close</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row" *ngIf="this.mydata.isWrappingLeave">
+    <div class="card-body">
+        <h1 class="card-title">Update Wrapping Leave Details</h1>
+        <hr>
+        <form action="" [formGroup]="this.updateTobaccoLeavesForm" class="form-group" (ngSubmit)="onSubmitUpdateTobaccoLeavesForm()">
+            <div class="row">
+                <div class="col-md-6 col-lg-6 col-sm-12">
+                    <label for="">Leave Type:</label>
+                    <input type="text" class="form-control" formControlName="leaveType" formControlName="tobaccoType">
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-12">
+                    <label for="">Quantity:</label>
+                    <input type="text" class="form-control" formControlName="quantity">
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 col-lg-6 col-sm-12">
+                    <label for="">Unit Price:</label>
+                    <input type="text" class="form-control" formControlName="price">
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-12">
+                    <label for="">Date:</label>
+                    <input type="date" class="form-control" formControlName="date">
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="col-10">
+                    <button class="btn btn-primary btn-sm" style="float: right;">Update</button>
+                </div>
+                <div class="col-2">
+                    <button class="btn btn-secondary btn-sm" style="float: right;">Close</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div> 
+
+<div class="row" *ngIf="this.mydata.isNilon">
+    <div class="card-body">
+        <h1 class="card-title">Update Nilon Details</h1>
+        <hr>
+        <form action="" [formGroup]="this.updateNilondetailsForm" class="form-group" (ngSubmit)="onSubmitUpdateNilonDetailsForm()">
+            <div class="row">
+                <div class="col-md-6 col-lg-6 col-sm-12">
+                    <label for="">Nilon Type:</label>
+                    <input type="text" class="form-control" formControlName="leaveType" formControlName="nilonType">
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-12">
+                    <label for="">Quantity:</label>
+                    <input type="text" class="form-control" formControlName="quantity">
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 col-lg-6 col-sm-12">
+                    <label for="">Unit Price:</label>
+                    <input type="text" class="form-control" formControlName="price">
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-12">
+                    <label for="">Date:</label>
+                    <input type="date" class="form-control" formControlName="date">
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="col-10">
+                    <button class="btn btn-primary btn-sm" style="float: right;">Update</button>
+                </div>
+                <div class="col-2">
+                    <button class="btn btn-secondary btn-sm" style="float: right;">Close</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div> 
+
+<div class="row" *ngIf="this.mydata.isChemical">
+    <div class="card-body">
+        <h1 class="card-title">Update Chemical Details</h1>
+        <hr>
+        <form action="" [formGroup]="this.updateChemicalDetailsForm" class="form-group" (ngSubmit)="onSubmitUpdateChemicalDetailsForm()">
+            <div class="row">
+                <div class="col-md-6 col-lg-6 col-sm-12">
+                    <label for="">Chemical Name:</label>
+                    <input type="text" class="form-control" formControlName="leaveType" formControlName="chemicalName">
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-12">
+                    <label for="">Chemical Type:</label>
+                    <input type="text" class="form-control" formControlName="chemicalType">
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 col-lg-6 col-sm-12">
+                    <label for="">Quantity:</label>
+                    <input type="text" class="form-control" formControlName="quantity">
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-12">
+                    <label for="">Unit Price:</label>
+                    <input type="text" class="form-control" formControlName="price">
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="col-md-6 col-lg-6 col-sm-12">
+                    <label for="">Date:</label>
+                    <input type="date" class="form-control" formControlName="date">
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="col-10">
+                    <button class="btn btn-primary btn-sm" style="float: right;">Update</button>
+                </div>
+                <div class="col-2">
+                    <button class="btn btn-secondary btn-sm" style="float: right;">Close</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
